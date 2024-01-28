@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import style from "../styles/apply.module.css";
-
+import Footer from "@/components/Footer";
+import { toast } from "react-toastify";
 function Apply() {
   const [category, setCategory] = useState("");
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
   };
-  const handleRegister =()=>{
-    e.preventDefault()
-  }
+  const handleRegister = (e) => {
+    e.preventDefault();
+    if (!category) return toast.error("Add a category");
+
+    toast("Your are registered successfully ");
+  };
   return (
     <>
       <section
@@ -25,7 +29,10 @@ function Apply() {
             <p className="text-center py-5 font-bold text-gray-500">
               Start building your hub
             </p>
-            <form onSubmit={handleRegister} className="flex flex-col gap-4 text-lg mt-5">
+            <form
+              onSubmit={handleRegister}
+              className="flex flex-col gap-4 text-lg mt-5"
+            >
               <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none">
                 <img className="w-6 mr-2" src="/svg/ig.svg" alt="" />
                 <input
@@ -38,11 +45,13 @@ function Apply() {
                 className="shadow-md border-2 px-3 py-2 rounded-md focus:outline-none"
                 type="email"
                 placeholder="Enter your email"
+                required
               />
               <input
                 className="shadow-md border-2 px-3 py-2 rounded-md focus:outline-none"
                 type="password"
                 placeholder="Set a password"
+                required
               />
               <h5 className="text-sm text-center">Account Type</h5>
               <span className="flex justify-center">
@@ -77,11 +86,16 @@ function Apply() {
                 </label>
               </span>
               <button className=""></button>
-              <input type="submit" value={"apply"} className="bg-indigo-600 py-2 text-white font-semibold rounded-lg"/>
+              <input
+                type="submit"
+                value={"apply"}
+                className="bg-indigo-600 py-2 text-white font-semibold rounded-lg"
+              />
             </form>
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
