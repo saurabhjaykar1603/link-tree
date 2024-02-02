@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import style from "../styles/apply.module.css";
 import Footer from "@/components/Footer";
 import { toast } from "react-toastify";
+import Link from "next/link";
 function Apply() {
+  const [handle, setHandle] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [category, setCategory] = useState("");
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
@@ -31,7 +36,7 @@ function Apply() {
             </p>
             <form
               onSubmit={handleRegister}
-              className="flex flex-col gap-4 text-lg mt-5"
+              className="flex flex-col gap-3 text-lg mt-1"
             >
               <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none">
                 <img className="w-6 mr-2" src="/svg/ig.svg" alt="" />
@@ -39,6 +44,8 @@ function Apply() {
                   className=" focus:outline-none"
                   type="text"
                   placeholder="Social Handle"
+                  value={handle}
+                  onChange={(e) => setHandle(e.target.value)}
                 />
               </span>
               <input
@@ -46,12 +53,16 @@ function Apply() {
                 type="email"
                 placeholder="Enter your email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 className="shadow-md border-2 px-3 py-2 rounded-md focus:outline-none"
                 type="password"
                 placeholder="Set a password"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <h5 className="text-sm text-center">Account Type</h5>
               <span className="flex justify-center">
@@ -93,6 +104,12 @@ function Apply() {
               />
             </form>
           </div>
+          <h4 className="text-center text-white font-bold mt-4">
+            Already have an account ?{" "}
+            <Link href="/login" className="text-red-400">
+              Login
+            </Link>
+          </h4>
         </div>
       </section>
       <Footer />
