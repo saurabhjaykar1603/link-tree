@@ -3,13 +3,35 @@ import style from "../styles/apply.module.css";
 import Footer from "@/components/Footer";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/router";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleLogin = (e) => {
+  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    toast("Your are Logged in");
+    try {
+      const response = await axios.post("http://localhost:8000/api/v1/login", {
+        email,
+        password,
+      });
+      if (response.status === 200 && response.data.success === true) {
+        toast.success("You are login successfully");
+        JSON.stringify(
+          localStorage.setItem("LinkTreeToken", response.data.token)
+        );
+        setSubmitted(true);
+        router.push("/dashbord")
+      } else {
+        throw new Error("Login failed");
+      }
+    } catch (error) {
+      toast.error(error.meassage || "An error occurred during login");
+    }
+
     setEmail("");
     setPassword("");
   };
