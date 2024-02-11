@@ -3,6 +3,8 @@ import style from "../styles/apply.module.css";
 import Footer from "@/components/Footer";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import { data } from "autoprefixer";
+import axios from "axios";
 function Apply() {
   const [handle, setHandle] = useState("");
   const [email, setEmail] = useState("");
@@ -12,12 +14,41 @@ function Apply() {
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
   };
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    if (!category) return toast.error("Add a category");
 
-    toast("Your are registered successfully ");
+    try {
+      if (!category) {
+        throw new Error("Add a category");
+      }
+
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/register",
+        {
+          handle,
+          email,
+          password,
+          category,
+        }
+      );
+
+      if (response.status === 200 && response.data.success === true) {
+        toast.success("You are registered successfully");
+       JSON.stringify( localStorage.setItem("LinkTreeToken" , response.data.token))
+      } else {
+        throw new Error("Registration failed");
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        toast.error(
+          "Email or handle already in use. Please try a different one."
+        );
+      } else {
+        toast.error(error.message || "An error occurred during registration");
+      }
+    }
   };
+
   return (
     <>
       <section
