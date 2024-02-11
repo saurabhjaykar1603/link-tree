@@ -39,9 +39,31 @@ const postApiv1Registered = async (req, res) => {
   }
 };
 const postApiv1Login = async (req, res) => {
-  res.status(200).json({
-    message: "login",
-  });
+  const { email, password } = req.body;
+
+  try {
+    const user = User.findOne({ email, password });
+    console.log(user);
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid credentials",
+      });
+    }
+    const token = jwt.sign({ email: email }, process.env.JWT_SECRETE_KEY);
+
+    return res.status(200).json({
+      success: true,
+      id: user._id,
+      token: token,
+      message: "User Found",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
 };
 
 export { postApiv1Registered, postApiv1Login };
