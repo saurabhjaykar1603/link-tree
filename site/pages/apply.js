@@ -3,14 +3,15 @@ import style from "../styles/apply.module.css";
 import Footer from "@/components/Footer";
 import { toast } from "react-toastify";
 import Link from "next/link";
-import { data } from "autoprefixer";
+import { useRouter } from "next/router";
 import axios from "axios";
 function Apply() {
+  const router = useRouter();
   const [handle, setHandle] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [category, setCategory] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
   };
@@ -34,7 +35,11 @@ function Apply() {
 
       if (response.status === 200 && response.data.success === true) {
         toast.success("You are registered successfully");
-       JSON.stringify( localStorage.setItem("LinkTreeToken" , response.data.token))
+        JSON.stringify(
+          localStorage.setItem("LinkTreeToken", response.data.token)
+        );
+        setSubmitted(true);
+        router.push("/login");
       } else {
         throw new Error("Registration failed");
       }
