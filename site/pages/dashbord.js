@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-
+import LinkBox from "./../components/LinkBox";
 function dashbord() {
   const router = useRouter();
   useEffect(() => {
@@ -13,9 +13,38 @@ function dashbord() {
 
   return (
     <>
-      <section className="main flex justify-center">
-        <div className="text-white bg-gray-700 rounded-md">Dashboard</div>
-      </section>
+      <div>
+        <span></span>
+        <main>
+          <section className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+            <LinkBox
+              lbTitle="Links"
+              lbNumber={"12"}
+              lbSvg={"link"}
+              lbTheme={"red"}
+            />{" "}
+            <LinkBox
+              lbTitle="Growth"
+              lbNumber={"30%"}
+              lbSvg={"growth"}
+              lbTheme={"blue"}
+            />
+              <LinkBox
+              lbTitle="Links"
+              lbNumber={"12"}
+              lbSvg={"email"}
+              lbTheme={"red"}
+            />{" "}
+            <LinkBox
+              lbTitle="Growth"
+              lbNumber={"30%"}
+              lbSvg={"lg"}
+              lbTheme={"blue"}
+            />
+          </section>
+          <section></section>
+        </main>
+      </div>
     </>
   );
 }
