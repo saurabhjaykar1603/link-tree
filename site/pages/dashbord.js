@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import LinkBox from "./../components/LinkBox";
+import UserHeader from "@/components/UserHeader";
 function dashbord() {
   const router = useRouter();
   useEffect(() => {
@@ -14,6 +15,7 @@ function dashbord() {
   return (
     <>
       <div>
+        <UserHeader/>
         <span></span>
         <main>
           <section className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
