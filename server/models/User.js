@@ -5,7 +5,10 @@ const UserSchema = new Schema(
     name: { type: String },
     bio: { type: String },
     email: { type: String, required: true, unique: true },
-    avatar: { type: String },
+    avatar: {
+      type: String,
+      default: "https://cdn-icons-png.flaticon.com/128/1154/1154473.png",
+    },
     password: { type: String, required: true },
     roll: {
       type: String,
