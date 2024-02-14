@@ -7,6 +7,7 @@ dotenv.config({
   path: "./../server/.env",
 });
 import cors from "cors";
+import { postApiv1DashboardData } from "./controllers/dashboard.controller.js";
 mongoose.set("strictQuery", false);
 const app = express();
 app.use(cors());
@@ -19,7 +20,7 @@ app.get("/health", (req, res) => {
 });
 app.post("/api/v1/register", postApiv1Registered);
 app.post("/api/v1/login", postApiv1Login);
-
+app.post("/api/v1/data/dashboard", postApiv1DashboardData)
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
