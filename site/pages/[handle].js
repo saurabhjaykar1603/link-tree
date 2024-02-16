@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import LinkTree from "@/components/LinkTree";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 function Handle() {
   const router = useRouter();
@@ -39,7 +40,25 @@ function Handle() {
   }
 
   if (!userFound) {
-    return <div>User nahi Mila</div>;
+    return (
+      <div className="min-h-screen flex justify-center items-center ">
+        <div className=" flex  flex-col gap-y-3">
+          <h1 className="font-bold text-xl"> User not found ☹️</h1>
+          <p>If you're looking for a page , double check the spelling. </p>
+          <p>
+            Create your own{" "}
+            <span>
+              <Link
+                href="/apply"
+                className="ml-2 bg-blue-300 px-3 py-1 rounded-sm hover:bg-blue-400 duration-300 transition-all"
+              >
+                LinkTree
+              </Link>
+            </span>
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return (
