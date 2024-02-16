@@ -5,6 +5,7 @@ import LinkTree from "@/components/LinkTree";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import SocialTree from "@/components/SocialTree";
+import ShareButton from "@/components/ShareButton";
 
 function Handle() {
   const router = useRouter();
@@ -31,6 +32,7 @@ function Handle() {
 
           console.log(response?.data?.data);
           setData(response?.data?.data);
+          setSocialMedia(response?.data?.data);
           setUserFound(true);
         }
       } catch (error) {
@@ -44,28 +46,28 @@ function Handle() {
     getUserData();
   }, [router.query]);
 
-  useEffect(()=>{
-    const getSocialMediaData = async () => {
-      try {
-        const userHandle = router.query?.handle;
-        if (userHandle) {
-          const response = await axios.get(
-            `http://localhost:8000/get/socials/${userHandle}`
-          );
+  // useEffect(()=>{
+  //   const getSocialMediaData = async () => {
+  //     try {
+  //       const userHandle = router.query?.handle;
+  //       if (userHandle) {
+  //         const response = await axios.get(
+  //           `http://localhost:8000/get/socials/${userHandle}`
+  //         );
 
-          console.log(response?.data?.data);
-          setSocialMedia(response?.data?.data);
-        }
-      } catch (error) {
-        console.error("Error fetching Social Media Links:", error);
-        toast.warning("Error fetching Social Media Links");
-      } finally {
-        setLoading(false);
-      }
-    };
+  //         console.log(response?.data?.data);
+  //         setSocialMedia(response?.data?.data);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching Social Media Links:", error);
+  //       toast.warning("Error fetching Social Media Links");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    getSocialMediaData();
-  },[router.query])
+  //   getSocialMediaData();
+  // },[router.query])
 
   if (loading) {
     return <div>Loading...</div>;
@@ -96,7 +98,8 @@ function Handle() {
   return (
     <div>
       <LinkTree data={data} />
-      <SocialTree socialMedia={socialMedia}/>
+      <SocialTree socialMedia={socialMedia} />
+      <ShareButton/>
     </div>
   );
 }
