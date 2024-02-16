@@ -22,7 +22,7 @@ app.get("/health", (req, res) => {
 app.post("/api/v1/register", postApiv1Registered);
 app.post("/api/v1/login", postApiv1Login);
 app.post("/api/v1/data/dashboard", postApiv1DashboardData)
-app.get('/api/v1/user/:handle' ,getApiV1UserData)
+app.get('/get/:handle' ,getApiV1UserData)
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
