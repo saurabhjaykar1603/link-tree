@@ -6,7 +6,7 @@ function SocialTree({ socialMedia }) {
     socialMedia;
   return (
     <>
-      <div className="social flex justify-evenly w-[400px]  mx-auto items-center">
+      <div className="social flex justify-evenly  md:w-[400px] md:gap-x-4  mx-auto items-center">
         <Link target="_blank" href={`https://facebook.com/${facebook}`}>
           <img
             src="/svg/fb.svg"
