@@ -4,12 +4,21 @@ import axios from "axios";
 import LinkTree from "@/components/LinkTree";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import SocialTree from "@/components/SocialTree";
 
 function Handle() {
   const router = useRouter();
   const [data, setData] = useState({});
   const [userFound, setUserFound] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [socialMedia, setSocialMedia] = useState({
+    facebook: "",
+    twitter: "",
+    instagram: "",
+    youtube: "",
+    linkedin: "",
+    github: "",
+  });
 
   useEffect(() => {
     const getUserData = async () => {
@@ -34,6 +43,29 @@ function Handle() {
 
     getUserData();
   }, [router.query]);
+
+  useEffect(()=>{
+    const getSocialMediaData = async () => {
+      try {
+        const userHandle = router.query?.handle;
+        if (userHandle) {
+          const response = await axios.get(
+            `http://localhost:8000/get/socials/${userHandle}`
+          );
+
+          console.log(response?.data?.data);
+          setSocialMedia(response?.data?.data);
+        }
+      } catch (error) {
+        console.error("Error fetching Social Media Links:", error);
+        toast.warning("Error fetching Social Media Links");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getSocialMediaData();
+  },[router.query])
 
   if (loading) {
     return <div>Loading...</div>;
@@ -64,6 +96,7 @@ function Handle() {
   return (
     <div>
       <LinkTree data={data} />
+      <SocialTree socialMedia={socialMedia}/>
     </div>
   );
 }
