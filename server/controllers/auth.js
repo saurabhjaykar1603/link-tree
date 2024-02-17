@@ -9,7 +9,7 @@ const postApiv1Registered = async (req, res) => {
     const defaulLink = {
       url: "https://github.com/saurabhjaykar1603",
       title: "Github",
-      icon: "",
+      icon: "https://cdn-icons-png.flaticon.com/128/2111/2111432.png",
     };
     const user = await User.create({
       handle,
