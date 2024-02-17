@@ -1,14 +1,14 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
-function UserHeader({data}) {
-  console.log(data)
-  const {name , roll  , avatar , handle , Llnks} = data
-    const router = useRouter()
+function UserHeader({ data }) {
+  console.log(data);
+  const { name, roll, avatar, handle, Links } = data;
+  const router = useRouter();
   const handleLogOut = () => {
     localStorage.removeItem("LinkTreeToken");
-    router.push("/login")
-    
+    router.push("/login");
   };
   return (
     <>
@@ -24,19 +24,17 @@ function UserHeader({data}) {
           </button>
         </div>
         <div className=" flex flex-row  ">
-          <div className="inline-flex mr-5 text-right items-center bg-slate-200 px-3 py-2 rounded-md">
-            <div className="text-xs md:text-md flex flex-col flex-wrap">
-              <span className="font-bold">{handle}</span>
-              <span>{roll} Pack </span>
+          <Link href={`http://localhost:3000/${handle}`}>
+            <div className="inline-flex mr-5 text-right items-center bg-slate-200 px-3 py-2 rounded-md">
+              <div className="text-xs md:text-md flex flex-col flex-wrap">
+                <span className="font-bold">{handle}</span>
+                <span>{roll} Pack </span>
+              </div>
+              <div className="user-img">
+                <img className="w-10 ml-5 cursor-pointer" src={avatar} alt="" />
+              </div>
             </div>
-            <div className="user-img">
-              <img
-                className="w-10 ml-5 cursor-pointer"
-                src={avatar}
-                alt=""
-              />
-            </div>
-          </div>
+          </Link>
           <img src="/svg/notify.svg" alt="" className="w-6 mr-4" />
           <img
             src="/svg/logout.svg"
