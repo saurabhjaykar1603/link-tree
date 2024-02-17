@@ -12,7 +12,7 @@ function LinkTreeCard({ title, url, image }) {
           <img
             src={image}
             alt=""
-            className="bg-white rounded-full p-1 w-11 mr-5"
+            className="bg-white rounded-md p-1 w-11 mr-5"
           />
           <h4 className="md:text-lg">{title}</h4>
         </Link>
