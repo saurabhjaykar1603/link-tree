@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import LinkBox from "./../components/LinkBox";
 import UserHeader from "@/components/UserHeader";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { data } from "autoprefixer";
+import UserContext from "../context/UserContext";
 function dashbord() {
   const router = useRouter();
   const [userData, setUserData] = useState({});
+  const { setUser } = useContext(UserContext);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,18 +25,17 @@ function dashbord() {
           }
         );
         const data = response?.data?.data;
-        if(!data){
-          alert("data not found")
-        }
-        else{
-
+        if (!data) {
+          alert("data not found");
+        } else {
           setUserData(data);
-          localStorage.setItem("LinkTreeUser" , data);
-          toast.success(data.message)
+          setUser(data);
+          localStorage.setItem("LinkTreeUser", data);
+          toast.success(data.message);
         }
       } catch (error) {
         console.error(error.message);
-      } 
+      }
     };
 
     const linkTreeToken = localStorage.getItem("LinkTreeToken");
@@ -49,8 +50,8 @@ function dashbord() {
   return (
     <>
       <div>
-        <UserHeader  data={userData}/>
-        
+        <UserHeader />
+
         <span></span>
         <main>
           <section className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">

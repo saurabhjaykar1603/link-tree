@@ -1,15 +1,56 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import UserContext from "@/context/UserContext";
 
-function UserHeader({ data }) {
-  console.log(data);
-  const { name, roll, avatar, handle, Links } = data;
+function UserHeader() {
+  // const { name, roll, avatar, handle, Links } = data;
   const router = useRouter();
   const handleLogOut = () => {
     localStorage.removeItem("LinkTreeToken");
     router.push("/login");
   };
+
+  const { user, setUser } = useContext(UserContext);
+  const { roll, avatar, handle } = user;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/api/v1/data/dashboard",
+          {
+            tokenMail: localStorage.getItem("LinkTreeToken"),
+          },
+          {
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
+        const data = response?.data?.data;
+        if (!data) {
+          alert("data not found");
+        } else {
+          setUserData(data);
+          setUser(data);
+          localStorage.setItem("LinkTreeUser", data);
+          toast.success(data.message);
+        }
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    const linkTreeToken = localStorage.getItem("LinkTreeToken");
+    if (!linkTreeToken) {
+      alert("Please log in first.");
+      router.push("/login");
+    } else {
+      fetchData();
+    }
+  }, []);
+
   return (
     <>
       <header className=" flex flex-row justify-between items-center ">
