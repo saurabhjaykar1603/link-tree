@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../../context/UserContext";
 import UserHeader from "@/components/UserHeader";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function profile() {
   const { user, setUser } = useContext(UserContext);
@@ -23,6 +25,32 @@ function profile() {
       [e.target.id]: e.target.value,
     });
   };
+  const saveSocial = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/save/social",
+        {
+          tokenMail: localStorage.getItem("LinkTreeToken"),
+          socials: socialMedia,
+        },
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+  
+      if (response?.data.success) {
+        toast.success("Profile Updated");
+      } else {
+        toast.error("Failed to update profile");
+      }
+    } catch (error) {
+      const errorMessage = error.response?.data.message || "Error updating profile";
+      toast.error(errorMessage);
+    }
+  };
+  
 
   useEffect(() => {
     if (user) {
@@ -163,6 +191,7 @@ function profile() {
                   <button
                     type="button"
                     className="w-32 bg-green-400 px-3 py-2 rounded-md border-2 border-green-600 font-bold shadow-xl hover:bg-green-500 duration-300 "
+                    onClick={saveSocial}
                   >
                     Save Links
                   </button>
