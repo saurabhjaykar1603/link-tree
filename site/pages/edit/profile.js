@@ -1,10 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 import UserContext from "../../context/UserContext";
 import UserHeader from "@/components/UserHeader";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 function profile() {
+  const router = useRouter();
   const { user, setUser } = useContext(UserContext);
   const [socialMedia, setSocialMedia] = useState({
     facebook: "",
@@ -39,18 +41,18 @@ function profile() {
           },
         }
       );
-  
+
       if (response?.data.success) {
         toast.success("Profile Updated");
       } else {
         toast.error("Failed to update profile");
       }
     } catch (error) {
-      const errorMessage = error.response?.data.message || "Error updating profile";
+      const errorMessage =
+        error.response?.data.message || "Error updating profile";
       toast.error(errorMessage);
     }
   };
-  
 
   useEffect(() => {
     if (user) {
@@ -59,6 +61,39 @@ function profile() {
       setAvatar(user.avatar);
     }
   }, [user]);
+
+  useEffect(() => {
+    if (!localStorage.getItem("LinkTreeToken")) return router.push("/login");
+    const loadSocialMedia = async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/api/v1/load/social",
+          {
+            tokenMail: localStorage.getItem("LinkTreeToken"),
+            socials: socialMedia,
+          },
+          {
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
+
+        if (response?.data.success) {
+          toast.success(" Links Loaded ");
+          console.log(response?.data?.data);
+          setSocialMedia(response?.data.data)
+        } else {
+          toast.error("Failed to  profile");
+        }
+      } catch (error) {
+        const errorMessage =
+          error.response?.data.message || "Error updating profile";
+        toast.error(errorMessage);
+      }
+    };
+    loadSocialMedia();
+  }, []);
   return (
     <>
       <div className="h-screen">
