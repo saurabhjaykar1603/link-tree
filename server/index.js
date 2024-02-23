@@ -10,6 +10,7 @@ import cors from "cors";
 import { postApiv1DashboardData } from "./controllers/dashboard.controller.js";
 import {getApiV1UserData} from "./controllers/getUserData.js";
 import {postApiV1SaveSocial } from "./controllers/saveItems.js";
+import { postApiV1LoadSocial } from "./controllers/postApiV1LoadSocial.js";
 mongoose.set("strictQuery", false);
 const app = express();
 app.use(cors());
@@ -26,6 +27,7 @@ app.post("/api/v1/data/dashboard", postApiv1DashboardData)
 app.get('/get/:handle' ,getApiV1UserData)
 // app.get('/get/socials/:handle' ,getApiV1SocialMedia)
 app.post('/api/v1/save/social', postApiV1SaveSocial)
+app.post('/api/v1/load/social', postApiV1LoadSocial)
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
