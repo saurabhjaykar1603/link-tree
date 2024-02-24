@@ -16,7 +16,7 @@ const postApiV1LoadSocial = async (req, res) => {
     return res.status(200).json({
       success: true,
       data: socialMedia,
-      message: "User profile saved",
+      message: "User links loaded",
     });
   } catch (error) {
     console.error(error);

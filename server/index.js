@@ -8,8 +8,11 @@ dotenv.config({
 });
 import cors from "cors";
 import { postApiv1DashboardData } from "./controllers/dashboard.controller.js";
-import {getApiV1UserData} from "./controllers/getUserData.js";
-import {postApiV1SaveSocial } from "./controllers/saveItems.js";
+import { getApiV1UserData } from "./controllers/getUserData.js";
+import {
+  postApiV1SaveProfile,
+  postApiV1SaveSocial,
+} from "./controllers/saveItems.js";
 import { postApiV1LoadSocial } from "./controllers/postApiV1LoadSocial.js";
 mongoose.set("strictQuery", false);
 const app = express();
@@ -23,11 +26,14 @@ app.get("/health", (req, res) => {
 });
 app.post("/api/v1/register", postApiv1Registered);
 app.post("/api/v1/login", postApiv1Login);
-app.post("/api/v1/data/dashboard", postApiv1DashboardData)
-app.get('/get/:handle' ,getApiV1UserData)
+app.post("/api/v1/data/dashboard", postApiv1DashboardData);
+app.get("/get/:handle", getApiV1UserData);
 // app.get('/get/socials/:handle' ,getApiV1SocialMedia)
-app.post('/api/v1/save/social', postApiV1SaveSocial)
-app.post('/api/v1/load/social', postApiV1LoadSocial)
+app.post("/api/v1/save/social", postApiV1SaveSocial);
+app.post("/api/v1/load/social", postApiV1LoadSocial);
+
+app.post("/api/v1/save/profile", postApiV1SaveProfile);
+
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
