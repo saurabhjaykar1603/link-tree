@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 function profile() {
   const router = useRouter();
   const { user, setUser } = useContext(UserContext);
+  console.log(user)
   const [socialMedia, setSocialMedia] = useState({
     facebook: "",
     twitter: "",
@@ -54,6 +55,35 @@ function profile() {
     }
   };
 
+  const saveProfile = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/save/profile",
+        {
+          tokenMail: localStorage.getItem("LinkTreeToken"),
+          name,
+          bio,
+          avatar,
+        },
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      if (response?.data.success) {
+        toast.success(" Profile Saved ");
+        console.log(response?.data?.data);
+      } else {
+        toast.error("Failed to  profile");
+      }
+    } catch (error) {
+      const errorMessage =
+        error.response?.data.message || "Error updating profile";
+      toast.error(errorMessage);
+    }
+  };
+
   useEffect(() => {
     if (user) {
       setName(user.name);
@@ -82,7 +112,7 @@ function profile() {
         if (response?.data.success) {
           toast.success(" Links Loaded ");
           console.log(response?.data?.data);
-          setSocialMedia(response?.data.data)
+          setSocialMedia(response?.data.data);
         } else {
           toast.error("Failed to  profile");
         }
@@ -144,6 +174,7 @@ function profile() {
                   <button
                     type="button"
                     className="w-32 bg-green-400 px-3 py-2 rounded-md border-2 border-green-600 font-bold shadow-xl hover:bg-green-500 duration-300 "
+                    onClick={saveProfile}
                   >
                     Save Profile
                   </button>
