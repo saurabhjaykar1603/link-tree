@@ -21,6 +21,7 @@ function Handle() {
     github: "",
   });
 
+
   useEffect(() => {
     const getUserData = async () => {
       try {
@@ -30,9 +31,8 @@ function Handle() {
             `http://localhost:8000/get/${userHandle}`
           );
 
-          console.log(response?.data?.data);
           setData(response?.data?.data);
-          setSocialMedia(response?.data?.data);
+          setSocialMedia(response?.data?.data?.socialMedia);
           setUserFound(true);
         }
       } catch (error) {

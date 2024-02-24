@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import UserContext from "@/context/UserContext";
+import axios from "axios";
 
 function UserHeader() {
   // const { name, roll, avatar, handle, Links } = data;
@@ -32,10 +33,9 @@ function UserHeader() {
         if (!data) {
           alert("data not found");
         } else {
-          setUserData(data);
+          // setUserData(data);
           setUser(data);
           localStorage.setItem("LinkTreeUser", data);
-          toast.success(data.message);
         }
       } catch (error) {
         console.error(error.message);
@@ -76,7 +76,7 @@ function UserHeader() {
                 <span>{roll} Pack </span>
               </div>
               <div className="user-img">
-                <img className="w-10 ml-5 cursor-pointer" src={avatar} alt="" />
+                <img className="w-10 ml-5 cursor-pointer rounded-full" src={avatar} alt="" />
               </div>
             </div>
           </Link>
