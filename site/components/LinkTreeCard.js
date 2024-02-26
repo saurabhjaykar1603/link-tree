@@ -6,7 +6,7 @@ function LinkTreeCard({ title, url, image }) {
     <>
       <span className="w-full">
         <Link
-          className="flex flex-row items-center p-2 rounded-xl text-white hover:text-black bg-blue-400 hover:bg-blue-300 mb-3 mx-2 hover:translate-x-1 hover:translate-y-1 transition-all duration-500"
+          className="flex flex-row items-center p-2 rounded-xl text-white hover:text-black bg-blue-400 hover:bg-blue-300 mb-3 mx-2 hover:translate-x-1 hover:translate-y-1 transition-all duration-500 h-12"
           href={url}
         >
           <img

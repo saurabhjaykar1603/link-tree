@@ -130,7 +130,7 @@ function link() {
                                 onChange={(e) =>
                                   handleChange(index, "url", e.target.value)
                                 }
-                                className="outline-none border-2  mx-auto border-blue-300 py-2 px-3  rounded-md w-full md:w-full"
+                                className="shadow-md border-2   focus:outline-none  py-2 px-3  rounded-md w-full md:w-full"
                                 placeholder="Enter your url"
                               />
                             </td>
@@ -141,7 +141,7 @@ function link() {
                                 onChange={(e) =>
                                   handleChange(index, "title", e.target.value)
                                 }
-                                className="outline-none border-2  mx-auto border-blue-300 py-2 px-3  rounded-md w-full md:w-full"
+                                className="shadow-md border-2   focus:outline-none  py-2 px-3  rounded-md w-full md:w-full"
                                 placeholder="Enter your Title"
                               />
                             </td>
