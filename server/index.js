@@ -13,7 +13,7 @@ import {
   postApiV1SaveProfile,
   postApiV1SaveSocial,
 } from "./controllers/saveItems.js";
-import { postApiV1LoadSocial } from "./controllers/postApiV1LoadSocial.js";
+import { postApiV1LoadLinks, postApiV1LoadSocial } from "./controllers/postApiV1LoadSocial.js";
 mongoose.set("strictQuery", false);
 const app = express();
 app.use(cors());
@@ -31,6 +31,7 @@ app.get("/get/:handle", getApiV1UserData);
 // app.get('/get/socials/:handle' ,getApiV1SocialMedia)
 app.post("/api/v1/save/social", postApiV1SaveSocial);
 app.post("/api/v1/load/social", postApiV1LoadSocial);
+app.post("/api/v1/load/links", postApiV1LoadLinks);
 
 app.post("/api/v1/save/profile", postApiV1SaveProfile);
 
