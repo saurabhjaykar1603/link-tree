@@ -193,7 +193,7 @@ function profile() {
                     <input
                       className=" focus:outline-none w-full"
                       type="text"
-                      placeholder="Enter Facebook Link"
+                      placeholder="Enter Facebook @username"
                       id="facebook"
                       value={socialMedia.facebook}
                       onChange={handleSocial}
@@ -204,7 +204,7 @@ function profile() {
                     <input
                       className=" focus:outline-none w-full"
                       type="text"
-                      placeholder="Enter Instagram Link"
+                      placeholder="Enter Instagram @username"
                       id="instagram"
                       value={socialMedia.instagram}
                       onChange={handleSocial}
@@ -215,7 +215,7 @@ function profile() {
                     <input
                       className=" focus:outline-none w-full"
                       type="text"
-                      placeholder="Enter Twitter Link"
+                      placeholder="Enter Twitter @username"
                       id="twitter"
                       value={socialMedia.twitter}
                       onChange={handleSocial}
@@ -226,7 +226,7 @@ function profile() {
                     <input
                       className=" focus:outline-none"
                       type="text"
-                      placeholder="Enter Linkedin Link"
+                      placeholder="Enter Linkedin @username"
                       id="linkedin"
                       value={socialMedia.linkedin}
                       onChange={handleSocial}
@@ -237,7 +237,7 @@ function profile() {
                     <input
                       className=" focus:outline-none"
                       type="text"
-                      placeholder="Enter Github Link"
+                      placeholder="Enter Github @username"
                       id="github"
                       value={socialMedia.github}
                       onChange={handleSocial}
@@ -248,7 +248,7 @@ function profile() {
                     <input
                       className=" focus:outline-none"
                       type="text"
-                      placeholder="Enter Youtube Link"
+                      placeholder="Enter Youtube @username"
                       id="youtube"
                       value={socialMedia.youtube}
                       onChange={handleSocial}
