@@ -35,7 +35,7 @@ function SocialTree({ socialMedia }) {
             className="w-12 my-1 bg-slate-50 shadow-md p-1 border-2 border-blue-400 rounded-full hover:bg-blue-100 hover:scale-110 hover:translate-x-1 duration-200"
           />
         </Link>
-        <Link target="_blank" href={`https://linkedin.com/${linkedin}`}>
+        <Link target="_blank" href={`https://linkedin.com/in/${linkedin}`}>
           <img
             src="/svg/linkdn.svg"
             alt=""
