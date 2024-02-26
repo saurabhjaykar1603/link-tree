@@ -28,7 +28,7 @@ function SocialTree({ socialMedia }) {
             className="w-12 my-1 bg-slate-50 shadow-md p-1 border-2 border-blue-400 rounded-full hover:bg-blue-100 hover:scale-110 hover:translate-x-1 duration-200"
           />
         </Link>{" "}
-        <Link target="_blank" href={`https://youtube.com/${youtube}`}>
+        <Link target="_blank" href={`https://youtube.com/@${youtube}`}>
           <img
             src="/svg/yt.svg"
             alt=""
