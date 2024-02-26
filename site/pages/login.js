@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/api/v1/login", {
+      const response = await axios.post(`${LINK_TREE_BACKEND_UR}/api/v1/login`, {
         email,
         password,
       });

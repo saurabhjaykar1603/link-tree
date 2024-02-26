@@ -28,7 +28,7 @@ function Handle() {
         const userHandle = router.query?.handle;
         if (userHandle) {
           const response = await axios.get(
-            `http://localhost:8000/get/${userHandle}`
+            `${LINK_TREE_BACKENT_URl}/get/${userHandle}`
           );
 
           setData(response?.data?.data);
@@ -52,7 +52,7 @@ function Handle() {
   //       const userHandle = router.query?.handle;
   //       if (userHandle) {
   //         const response = await axios.get(
-  //           `http://localhost:8000/get/socials/${userHandle}`
+  //           `LINK_TREE_BACKENT_URl/get/socials/${userHandle}`
   //         );
 
   //         console.log(response?.data?.data);

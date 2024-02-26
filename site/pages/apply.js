@@ -24,7 +24,7 @@ function Apply() {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/api/v1/register",
+        `${LINK_TREE_BACKENT_URl}/api/v1/register`,
         {
           handle,
           email,

@@ -6,7 +6,7 @@ function ShareButton() {
   const router = useRouter();
   const copyButton = () => {
     navigator.clipboard.writeText(
-      `http://localhost:3000/${router.query.handle}`
+      `${LINK_TREE_FRONTEND_URL}/${router.query.handle}`
     );
     toast.success("Link coppied successfully")
   };

@@ -19,7 +19,7 @@ function UserHeader() {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/data/dashboard",
+          `${LINK_TREE_BACKEND_URl}/api/v1/data/dashboard`,
           {
             tokenMail: localStorage.getItem("LinkTreeToken"),
           },
@@ -69,7 +69,7 @@ function UserHeader() {
           </Link>
         </div>
         <div className=" flex flex-row  ">
-          <Link href={`http://localhost:3000/${handle}`}>
+          <Link href={`${LINK_TREE_FRONTENT_URl}/${handle}`}>
             <div className="inline-flex mr-5 text-right items-center bg-slate-200 px-3 py-2 rounded-md">
               <div className="text-xs md:text-md flex flex-col flex-wrap">
                 <span className="font-bold">{handle}</span>
