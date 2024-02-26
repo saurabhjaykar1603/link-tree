@@ -28,7 +28,7 @@ function Handle() {
         const userHandle = router.query?.handle;
         if (userHandle) {
           const response = await axios.get(
-            `${LINK_TREE_BACKENT_URl}/get/${userHandle}`
+            `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/get/${userHandle}`
           );
 
           setData(response?.data?.data);

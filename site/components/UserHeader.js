@@ -19,7 +19,7 @@ function UserHeader() {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          `${LINK_TREE_BACKEND_URl}/api/v1/data/dashboard`,
+          `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/data/dashboard`,
           {
             tokenMail: localStorage.getItem("LinkTreeToken"),
           },
@@ -69,14 +69,18 @@ function UserHeader() {
           </Link>
         </div>
         <div className=" flex flex-row  ">
-          <Link href={`${LINK_TREE_FRONTENT_URl}/${handle}`}>
+          <Link href={`${process.env.NEXT_PUBLIC_LINK_TREE_FRONTEND_URL}/${handle}`}>
             <div className="inline-flex mr-5 text-right items-center bg-slate-200 px-3 py-2 rounded-md">
               <div className="text-xs md:text-md flex flex-col flex-wrap">
                 <span className="font-bold">{handle}</span>
                 <span>{roll} Pack </span>
               </div>
               <div className="user-img">
-                <img className="w-10 ml-5 cursor-pointer rounded-full" src={avatar} alt="" />
+                <img
+                  className="w-10 ml-5 cursor-pointer rounded-full"
+                  src={avatar}
+                  alt=""
+                />
               </div>
             </div>
           </Link>

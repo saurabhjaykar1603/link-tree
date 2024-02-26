@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Script from "next/script";
 import UserContext from "../context/UserContext";
 
+
 export default function App({ Component, pageProps }) {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();

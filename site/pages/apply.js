@@ -22,9 +22,8 @@ function Apply() {
       if (!category) {
         throw new Error("Add a category");
       }
-
       const response = await axios.post(
-        `${LINK_TREE_BACKENT_URl}/api/v1/register`,
+        `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/register`,
         {
           handle,
           email,

@@ -14,7 +14,7 @@ function dashbord() {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          `${LINK_TREE_BACKENT_URl}/api/v1/data/dashboard`,
+          `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/data/dashboard`,
           {
             tokenMail: localStorage.getItem("LinkTreeToken"),
           },

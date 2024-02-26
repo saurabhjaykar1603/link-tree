@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 function profile() {
   const router = useRouter();
   const { user, setUser } = useContext(UserContext);
-  console.log(user)
+  console.log(user);
   const [socialMedia, setSocialMedia] = useState({
     facebook: "",
     twitter: "",
@@ -31,7 +31,7 @@ function profile() {
   const saveSocial = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/save/social",
+        `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/save/social`,
         {
           tokenMail: localStorage.getItem("LinkTreeToken"),
           socials: socialMedia,
@@ -58,7 +58,7 @@ function profile() {
   const saveProfile = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/save/profile",
+        `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/save/profile`,
         {
           tokenMail: localStorage.getItem("LinkTreeToken"),
           name,
@@ -97,7 +97,7 @@ function profile() {
     const loadSocialMedia = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/load/social",
+          `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/load/social`,
           {
             tokenMail: localStorage.getItem("LinkTreeToken"),
             socials: socialMedia,

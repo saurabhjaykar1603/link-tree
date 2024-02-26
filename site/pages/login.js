@@ -14,17 +14,20 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${LINK_TREE_BACKEND_UR}/api/v1/login`, {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/login`,
+        {
+          email,
+          password,
+        }
+      );
       if (response.status === 200 && response.data.success === true) {
         toast.success("You are login successfully");
         JSON.stringify(
           localStorage.setItem("LinkTreeToken", response.data.token)
         );
         setSubmitted(true);
-        router.push("/dashbord")
+        router.push("/dashbord");
       } else {
         throw new Error("Login failed");
       }

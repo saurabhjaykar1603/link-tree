@@ -39,7 +39,7 @@ function link() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/save/links",
+        `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/save/links`,
         {
           tokenMail: localStorage.getItem("LinkTreeToken"),
           links: linksData,
@@ -71,7 +71,7 @@ function link() {
     const loadLinks = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/load/links",
+          `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/load/links`,
           {
             tokenMail: localStorage.getItem("LinkTreeToken"),
           },
