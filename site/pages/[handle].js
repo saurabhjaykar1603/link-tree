@@ -21,7 +21,6 @@ function Handle() {
     github: "",
   });
 
-
   useEffect(() => {
     const getUserData = async () => {
       try {
@@ -32,7 +31,7 @@ function Handle() {
           );
 
           setData(response?.data?.data);
-          setSocialMedia(response?.data?.data?.socialMedia);
+          setSocialMedia(response?.data?.data?.socialMedia || "{}");
           setUserFound(true);
         }
       } catch (error) {
@@ -99,7 +98,7 @@ function Handle() {
     <div>
       <LinkTree data={data} />
       <SocialTree socialMedia={socialMedia} />
-      <ShareButton/>
+      <ShareButton />
     </div>
   );
 }

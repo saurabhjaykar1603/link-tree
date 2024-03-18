@@ -49,7 +49,7 @@ a {
   background: #757575; /* Set color of thumb on hover */
 }
 
-img{
+img {
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -59,3 +59,13 @@ img{
     color-scheme: dark;
   }
 } */
+@layer base {
+  section {
+    @apply pt-16 pb-4 md:pt-20;
+  }
+}
+@layer utilities {
+  .home__title {
+    @apply text-4xl font-oswald font-bold uppercase lg:text-6xl;
+  }
+}
