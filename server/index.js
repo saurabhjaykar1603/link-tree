@@ -22,7 +22,7 @@ mongoose.set("strictQuery", false);
 const app = express();
 // Allow requests from a specific origin
 const corsOptions = {
-  origin: "https://link-tree-client.vercel.app",
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
