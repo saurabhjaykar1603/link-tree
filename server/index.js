@@ -21,14 +21,17 @@ import {
 mongoose.set("strictQuery", false);
 const app = express();
 // Allow requests from a specific origin
-const corsOptions = {
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
-};
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, OPTIONS, POST, PUT, DELETE");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, Content-type, Accept, Authorization"
+  );
+  res.header("Access-Control-Allow-Credentials", "true");
 
-app.use(cors(corsOptions));
+  next();
+});
 app.use(express.json());
 
 app.get("/health", (req, res) => {
