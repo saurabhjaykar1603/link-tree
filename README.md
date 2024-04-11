@@ -64,7 +64,8 @@ Once the application is running, you can perform the following actions:
 - **Add Links**: Add Social links.
 - **Update Links and Profile**: Update Social links and Profile.
 
-* env for server :
+
+* env for server :-
 - create **.env** file at
 ```bash
 cd <server>
@@ -75,9 +76,10 @@ PORT="8080"
 JWT_SECRETE_KEY=""
 ```
 
-* env for server :
+* env for server :-
 - create **.env.local** file at
-cd <site>
+```bash
+cd <server>
 ```
 ```env
 NEXT_PUBLIC_LINK_TREE_BACKEND_URL=http://localhost:8080
