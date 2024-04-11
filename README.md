@@ -48,7 +48,7 @@ npm install
 
 ### Running the Application
 
-To run the development server, execute the following command:
+To run the development server and site execute the following command:
 
 ```bash
 npm run dev
