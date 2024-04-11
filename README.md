@@ -80,6 +80,8 @@ JWT_SECRETE_KEY=""
 cd <site>
 ```
 ```env
+
 NEXT_PUBLIC_LINK_TREE_BACKEND_URL=http://localhost:8080
 NEXT_PUBLIC_LINK_TREE_FRONTEND_URL=http://localhost:3000
+
 ```
