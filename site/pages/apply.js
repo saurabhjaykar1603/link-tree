@@ -25,8 +25,8 @@ function Apply() {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/register`,
         {
-          handle,
-          email,
+          handle: handle.toLocaleLowerCase().trim(),
+          email: email.toLocaleLowerCase().trim(),
           password,
           category,
         }

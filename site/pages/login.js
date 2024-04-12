@@ -17,7 +17,7 @@ function Login() {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/login`,
         {
-          email,
+          email: email.toLocaleLowerCase().trim(),
           password,
         }
       );
