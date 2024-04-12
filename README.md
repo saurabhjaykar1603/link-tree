@@ -26,7 +26,7 @@ git clone <https://github.com/saurabhjaykar1603/link-tree>
 2. Navigate to the  project server directory:
 
 ```bash
-cd <server>
+cd <site>
 ```
 
 3. Install dependencies using npm or yarn:
