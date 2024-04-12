@@ -55,7 +55,7 @@ function link() {
         toast.success(" Links Loaded ");
         console.log(response?.data?.handle);
         setLinks(response?.data?.data);
-        window.location.href = `http://localhost:3000/${response?.data?.handle}`;
+        window.location.href = `${process.env.NEXT_PUBLIC_LINK_TREE_FRONTEND_URL}/${response?.data?.handle}`;
       } else {
         toast.error("Failed to  links");
       }

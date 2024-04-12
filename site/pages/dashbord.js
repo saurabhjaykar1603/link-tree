@@ -40,7 +40,6 @@ function dashbord() {
 
     const linkTreeToken = localStorage.getItem("LinkTreeToken");
     if (!linkTreeToken) {
-      alert("Please log in first.");
       router.push("/login");
     } else {
       fetchData();
