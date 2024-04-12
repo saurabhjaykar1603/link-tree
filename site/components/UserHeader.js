@@ -56,20 +56,22 @@ function UserHeader() {
       <header className=" flex flex-row justify-between items-center ">
         <div className=" flex flex-col md:flex-row p-4  ">
           <Link href="/edit/link">
-            <button className="inline-flex w-full md:w-auto   px-5 py-4 text-purple-500 font-bold  hover:text-purple-800 hover:bg-purple-100 rounded-md mb-3 border-2 border-purple-500">
-              <img src="/svg/link.svg" alt="" className="w-6 mr-2" />
+            <button className="inline-flex justify-center items-center w-[100px] md:w-auto md:text-[16px] text-[12px] px-5 py-4 text-purple-500 font-bold  hover:text-purple-800 hover:bg-purple-100 rounded-md mb-3 border-2 border-purple-500 ">
+              <img src="/svg/link.svg" alt="" className="w-4 md:w-6 mr-2 text-sky-100" />
               Edit Link
             </button>
           </Link>
           <Link href="/edit/profile">
-            <button className="inline-flex w-full md:w-auto px-5 py-4 text-red-500 font-bold hover:text-red-700 hover:bg-red-100 rounded-md mb-3 md:ml-3 border-2  border-red-500">
-              <img src="/svg/user.svg" alt="" className="w-6 mr-2" />
+            <button className="inline-flex justify-center items-center w-[100px] md:w-auto md:text-[16px] text-[12px]  px-5 py-4 text-red-500 font-bold hover:text-red-700 hover:bg-red-100 rounded-md mb-3 md:ml-3 border-2  border-red-500">
+              <img src="/svg/user.svg" alt="" className="w-4 md:w-6 mr-2 text-sky-100" />
               Edit Profile
             </button>
           </Link>
         </div>
         <div className=" flex flex-row  ">
-          <Link href={`${process.env.NEXT_PUBLIC_LINK_TREE_FRONTEND_URL}/${handle}`}>
+          <Link
+            href={`${process.env.NEXT_PUBLIC_LINK_TREE_FRONTEND_URL}/${handle}`}
+          >
             <div className="inline-flex mr-5 text-right items-center bg-slate-200 px-3 py-2 rounded-md">
               <div className="text-xs md:text-md flex flex-col flex-wrap">
                 <span className="font-bold">{handle}</span>

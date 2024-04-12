@@ -126,40 +126,43 @@ function profile() {
   }, []);
   return (
     <>
-      <div className="h-screen">
+      <div
+        className=""
+        style={{ background: "linear-gradient(to bottom, #4b0082, #000000)" }}
+      >
         <UserHeader />
         <main>
           <section className="flex justify-evenly mt-14 flex-wrap gap-y-10">
             <div className=" w-[600px] mx-auto">
-              <h1 className="text-center  mb-5 text-3xl text-blue-600 font-bold">
+              <h1 className="text-center  mb-5 text-3xl text-purple-300 font-bold">
                 Edit Profile
               </h1>
               <div>
                 <form className="flex justify-center flex-col items-center">
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5">
+                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
                     <img className="w-6 mr-2" src="/svg/avatar.svg" alt="" />
                     <input
-                      className=" focus:outline-none w-full"
+                        className=" focus:outline-none w-full  rounded-sm pl-2"
                       type="text"
                       placeholder="Set a Name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5">
+                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
                     <img className="w-6 mr-2" src="/svg/bio.svg" alt="" />
                     <input
-                      className=" focus:outline-none w-full"
+                        className=" focus:outline-none w-full  rounded-sm pl-2"
                       type="text"
                       placeholder="Enter a bio"
                       value={bio}
                       onChange={(e) => setBio(e.target.value)}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5">
+                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
                     <img className="w-6 mr-2" src="/svg/avatar.svg" alt="" />
                     <input
-                      className=" focus:outline-none w-full"
+                      className=" focus:outline-none w-full  rounded-sm pl-2"
                       type="text"
                       placeholder="Enter image Link"
                       value={avatar}
@@ -168,7 +171,7 @@ function profile() {
                     <img
                       src={avatar}
                       alt=""
-                      className="w-8 rounded-full border-2 border-white shadow-md "
+                      className="ml-1 w-8 rounded-full border-2 border-white shadow-md "
                     />
                   </span>
                   <button
@@ -183,15 +186,15 @@ function profile() {
             </div>
 
             <div className=" w-[600px] mx-auto">
-              <h1 className="text-center  mb-5 text-3xl text-blue-600 font-bold">
+              <h1 className="text-center  mb-5 text-3xl text-purple-300 font-bold">
                 Edit Social Links
               </h1>
               <div>
                 <form className="flex justify-center flex-col items-center">
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5">
+                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
                     <img className="w-6 mr-2" src="/svg/fb.svg" alt="" />
                     <input
-                      className=" focus:outline-none w-full"
+                        className=" focus:outline-none w-full  rounded-sm pl-2"
                       type="text"
                       placeholder="Enter Facebook @username"
                       id="facebook"
@@ -199,10 +202,10 @@ function profile() {
                       onChange={handleSocial}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5">
+                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
                     <img className="w-6 mr-2" src="/svg/ig.svg" alt="" />
                     <input
-                      className=" focus:outline-none w-full"
+                        className=" focus:outline-none w-full  rounded-sm pl-2"
                       type="text"
                       placeholder="Enter Instagram @username"
                       id="instagram"
@@ -210,10 +213,10 @@ function profile() {
                       onChange={handleSocial}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5">
+                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
                     <img className="w-6 mr-2" src="/svg/tw.svg" alt="" />
                     <input
-                      className=" focus:outline-none w-full"
+                         className=" focus:outline-none w-full  rounded-sm pl-2"
                       type="text"
                       placeholder="Enter Twitter @username"
                       id="twitter"
@@ -221,10 +224,10 @@ function profile() {
                       onChange={handleSocial}
                     />
                   </span>
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5">
+                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
                     <img className="w-6 mr-2" src="/svg/linkdn.svg" alt="" />
                     <input
-                      className=" focus:outline-none"
+                      className=" focus:outline-none w-full  rounded-sm pl-2"
                       type="text"
                       placeholder="Enter Linkedin @username"
                       id="linkedin"
@@ -232,10 +235,10 @@ function profile() {
                       onChange={handleSocial}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5">
+                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
                     <img className="w-6 mr-2" src="/svg/github.svg" alt="" />
                     <input
-                      className=" focus:outline-none"
+                        className=" focus:outline-none w-full  rounded-sm pl-2"
                       type="text"
                       placeholder="Enter Github @username"
                       id="github"
@@ -243,10 +246,10 @@ function profile() {
                       onChange={handleSocial}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5">
+                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
                     <img className="w-6 mr-2" src="/svg/yt.svg" alt="" />
                     <input
-                      className=" focus:outline-none"
+                       className=" focus:outline-none w-full  rounded-sm pl-2"
                       type="text"
                       placeholder="Enter Youtube @username"
                       id="youtube"

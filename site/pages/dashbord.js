@@ -48,7 +48,7 @@ function dashbord() {
 
   return (
     <>
-      <div>
+      <div style={{background: 'linear-gradient(to bottom, #4b0082, #000000)'}} className="h-screen">
         <UserHeader />
 
         <span></span>
