@@ -167,7 +167,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <Footer className="mt-10" />
       </div>
     </>
   );
