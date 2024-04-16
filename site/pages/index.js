@@ -57,7 +57,7 @@ export default function Home() {
                   <img
                     src="/images/add-group.png"
                     alt=""
-                    className="h-[80px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
+                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
                   />
                 </div>
                 <div className="col-span-8">
@@ -76,7 +76,7 @@ export default function Home() {
                   <img
                     src="/images/ux.png"
                     alt=""
-                    className="h-[80px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
+                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
                   />
                 </div>
                 <div className="col-span-8">
@@ -95,7 +95,7 @@ export default function Home() {
                   <img
                     src="/images/link.png"
                     alt=""
-                    className="h-[80px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
+                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
                   />
                 </div>
                 <div className="col-span-8">
@@ -114,7 +114,7 @@ export default function Home() {
                   <img
                     src="/images/updated.png"
                     alt=""
-                    className="h-[80px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
+                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
                   />
                 </div>
                 <div className="col-span-8">
@@ -133,7 +133,7 @@ export default function Home() {
                   <img
                     src="/images/share.png"
                     alt=""
-                    className="h-[80px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
+                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
                   />
                 </div>
                 <div className="col-span-8">
@@ -152,7 +152,7 @@ export default function Home() {
                   <img
                     src="/images/analyitics.png"
                     alt=""
-                    className="h-[80px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
+                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
                   />
                 </div>
                 <div className="col-span-8">
