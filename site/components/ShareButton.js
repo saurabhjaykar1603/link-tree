@@ -8,11 +8,14 @@ function ShareButton() {
     navigator.clipboard.writeText(
       `${process.env.NEXT_PUBLIC_LINK_TREE_FRONTEND_URL}/${router.query.handle}`
     );
-    toast.success("Link coppied successfully")
+    toast.success("Link coppied successfully");
   };
   return (
     <>
-      <div className="absolute top-24 left-5 z-10 bg-blue-200 p-1 border-2 border-blue-500 rounded-lg :p-2" onClick={copyButton}>
+      <div
+        className="absolute cursor-grab top-24 left-5 z-10 bg-purple-200 p-1 border-2 border-purple-500 rounded-lg :p-2"
+        onClick={copyButton}
+      >
         <img src="/svg/share.svg" alt="share" className="w-8" />
       </div>
     </>

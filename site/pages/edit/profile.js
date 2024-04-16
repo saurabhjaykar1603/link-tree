@@ -134,7 +134,7 @@ function profile() {
         <main>
           <section className="flex justify-evenly mt-14 flex-wrap gap-y-10">
             <div className=" w-[600px] mx-auto">
-              <h1 className="text-center  mb-5 text-3xl text-purple-300 font-bold">
+              <h1 className="text-center  mb-5 text-3xl  text-gray-300 font-bold">
                 Edit Profile
               </h1>
               <div>
@@ -186,7 +186,7 @@ function profile() {
             </div>
 
             <div className=" w-[600px] mx-auto">
-              <h1 className="text-center  mb-5 text-3xl text-purple-300 font-bold">
+              <h1 className="text-center  mb-5 text-3xl  text-gray-300 font-bold">
                 Edit Social Links
               </h1>
               <div>

@@ -42,7 +42,7 @@ function Login() {
     <>
       <section
         className={
-          style.background + " min-h-screen flex justify-center items-center"
+          style.background + " md:h-screen h-[900px] flex justify-center items-center"
         }
       >
         <div className="main">
@@ -94,7 +94,7 @@ function Login() {
           </h4>
         </div>
       </section>
-      <Footer className="mt-9" />
+      <Footer className="mt-" />
     </>
   );
 }

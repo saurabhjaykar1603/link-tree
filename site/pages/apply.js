@@ -57,7 +57,7 @@ function Apply() {
     <>
       <section
         className={
-          style.background + " min-h-screen flex justify-center items-center"
+          style.background + " md:h-screen h-[900px] flex justify-center items-center"
         }
       >
         <div className="main">

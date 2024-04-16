@@ -99,23 +99,26 @@ function link() {
   }, []);
   return (
     <>
-      <div>
+      <div
+        className="w-full py- mt-0 h-[900px] md:h-screen  "
+        style={{ background: "linear-gradient(to bottom, #4b0082, #000000)" }}
+      >
         <UserHeader />
 
         <main>
           <section>
-            <h1 className="text-center text-2xl text-gray-700 font-semibold">
+            <h1 className="text-center text-2xl text-gray-300 font-semibold">
               Edit Your Links
             </h1>
             <div>
               <form action="" className="px-5 my-5">
                 <div className="overflow-x-auto">
-                  <table className="min-w-full bg-white border border-gray-300">
+                  <table className="min-w-full bg-transparent border border-gray-300">
                     <thead>
                       <tr>
-                        <th className="py-2 px-4 border-b">Url</th>
-                        <th className="py-2 px-4 border-b">Title</th>
-                        <th className="py-2 px-4 border-b">Remove Button</th>
+                        <th className="py-2 px-4 border-b text-gray-300 font-bold">Url</th>
+                        <th className="py-2 px-4 border-b text-gray-300 font-bold">Title</th>
+                        <th className="py-2 px-4 border-b text-gray-300 font-bold">Remove Button</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -151,7 +154,7 @@ function link() {
                                 onClick={() => {
                                   handleRemoveLink(index);
                                 }}
-                                className="outline-none border-2  mx-auto border-red-400 py-2  bg-red-300 px-3  rounded-md w-full md:w-full"
+                                className="outline-none border-2  mx-auto border-red-700 py-2  font-bold bg-red-400 px-3  rounded-md w-full md:w-full"
                               >
                                 Remove Link
                               </button>
@@ -166,7 +169,7 @@ function link() {
                   <button
                     type="button"
                     onClick={handleAddLink}
-                    className="w-full md:w-1/2 bg-blue-500 px-2 p-2 text-white font-bold rounded-md shadow-md"
+                    className="w-full md:w-1/2 bg-purple-500 hover:bg-purple-700 duration-200 px-2 p-2 text-white font-bold rounded-md shadow-md"
                   >
                     Add Link
                   </button>

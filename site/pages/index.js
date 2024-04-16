@@ -1,6 +1,7 @@
 import Link from "next/link";
 import MyHead from "../components/MyHead";
 import { useRouter } from "next/router";
+import Footer from "@/components/Footer";
 
 
 export default function Home() {
@@ -166,6 +167,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <Footer className="mt-10" />
       </div>
     </>
   );

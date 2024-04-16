@@ -74,7 +74,10 @@ function Handle() {
 
   if (!userFound) {
     return (
-      <div className="min-h-screen flex justify-center items-center ">
+      <div
+        className="min-h-screen flex justify-center items-center "
+       
+      >
         <div className=" flex  flex-col gap-y-3">
           <h1 className="font-bold text-xl"> User not found ☹️</h1>
           <p>If you're looking for a page , double check the spelling. </p>
@@ -95,7 +98,7 @@ function Handle() {
   }
 
   return (
-    <div>
+    <div  className="md:h-screen h-[900px]" style={{ background: "linear-gradient(to bottom, #4b0082, #000000)" }}>
       <LinkTree data={data} />
       <SocialTree socialMedia={socialMedia} />
       <ShareButton />
