@@ -80,7 +80,7 @@ JWT_SECRETE_KEY=""
 * env for server :-
 - create **.env.local** file at
 ```bash
-cd <server>
+cd <site>
 ```
 ```env
 NEXT_PUBLIC_LINK_TREE_BACKEND_URL=http://localhost:8080
