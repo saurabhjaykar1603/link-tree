@@ -127,7 +127,7 @@ function profile() {
   return (
     <>
       <div
-        className=""
+        className="h-screen"
         style={{ background: "linear-gradient(to bottom, #4b0082, #000000)" }}
       >
         <UserHeader />
