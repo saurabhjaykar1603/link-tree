@@ -17,6 +17,7 @@ function Apply() {
   };
   const handleRegister = async (e) => {
     e.preventDefault();
+    setSubmitted(true);
 
     try {
       if (!category) {
@@ -37,12 +38,13 @@ function Apply() {
         JSON.stringify(
           localStorage.setItem("LinkTreeToken", response.data.token)
         );
-        setSubmitted(true);
+        setSubmitted(false);
         router.push("/login");
       } else {
         throw new Error("Registration failed");
       }
     } catch (error) {
+      setSubmitted(false);
       if (error.response && error.response.status === 401) {
         toast.error(
           "Email or handle already in use. Please try a different one."
@@ -57,7 +59,8 @@ function Apply() {
     <>
       <section
         className={
-          style.background + " md:h-screen h-[900px] flex justify-center items-center"
+          style.background +
+          " md:h-screen h-[900px] flex justify-center items-center"
         }
       >
         <div className="main">
@@ -134,7 +137,7 @@ function Apply() {
               <button className=""></button>
               <input
                 type="submit"
-                value={"apply"}
+                value={submitted ? "loading.." : "apply"}
                 className="bg-indigo-600 py-2 text-white font-semibold rounded-lg"
               />
             </form>

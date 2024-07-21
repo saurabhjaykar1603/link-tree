@@ -12,6 +12,7 @@ function Login() {
   const router = useRouter();
   const handleLogin = async (e) => {
     e.preventDefault();
+    setSubmitted(true);
 
     try {
       const response = await axios.post(
@@ -26,13 +27,14 @@ function Login() {
         JSON.stringify(
           localStorage.setItem("LinkTreeToken", response.data.token)
         );
-        setSubmitted(true);
+        setSubmitted(false);
         router.push("/dashbord");
       } else {
         throw new Error("Login failed");
       }
     } catch (error) {
       toast.error(error.meassage || "An error occurred during login");
+      setSubmitted(false);
     }
 
     setEmail("");
@@ -81,7 +83,7 @@ function Login() {
 
               <input
                 type="submit"
-                value={"login"}
+                value={submitted?"loading..":'Login'}
                 className="bg-indigo-600 py-2 text-white font-semibold rounded-lg"
               />
             </form>
