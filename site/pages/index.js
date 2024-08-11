@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <MyHead title="Home" />
 
-      <div className="w-full h-screen py- mt-0" style={{background: 'linear-gradient(to bottom, #4b0082, #000000)'}}>
+      <div className="w-full min-h-screen py- mt-0" style={{background: 'linear-gradient(to bottom, #4b0082, #000000)'}}>
         <div className="container mx-auto grid md:grid-cols-2 gap-5 px-4 md:px-0">
           <div className="flex flex-col justify-center md:justify-startmd:gap-4 p-5">
             <h1 className="text-4xl md:text-5xl font-bold text-yellow-500 text-center md:text-start">
