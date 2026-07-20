@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,40 +15,32 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Baloo 2", "Fredoka", Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #fdf6e3;
 }
 
 a {
-  font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Baloo 2", Verdana, Geneva, Tahoma, sans-serif;
   color: inherit;
   text-decoration: none;
 }
 
 ::-webkit-scrollbar {
-  width: 8px; /* Set width of scrollbar */
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Set background color of scrollbar track */
+  background: #fdf6e3;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Set color of scrollbar thumb */
-  border-radius: 2px; /* Round the corners of the thumb */
+  background: #7c3aed;
+  border-radius: 8px;
+  border: 2px solid #fdf6e3;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #757575; /* Set color of thumb on hover */
+  background: #6d28d9;
 }
 
 img {
@@ -54,18 +48,172 @@ img {
   -webkit-user-drag: none;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* ---------- Cartoon theme utilities ---------- */
+
+.toon-card {
+  border: 3px solid #1a1a2e;
+  border-radius: 20px;
+  box-shadow: 6px 6px 0 #1a1a2e;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.toon-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 9px 9px 0 #1a1a2e;
+}
+
+.toon-btn {
+  border: 3px solid #1a1a2e;
+  border-radius: 16px;
+  box-shadow: 5px 5px 0 #1a1a2e;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.toon-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 #1a1a2e;
+}
+
+.toon-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #1a1a2e;
+}
+
+.toon-input {
+  border: 3px solid #1a1a2e;
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 #1a1a2e;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background: #fff;
+}
+
+.toon-input:focus-within,
+.toon-input:focus {
+  outline: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #7c3aed;
+}
+
+.toon-sticker {
+  border: 3px solid #1a1a2e;
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 #1a1a2e;
+}
+
+.dots-bg {
+  background-color: #fdf6e3;
+  background-image: radial-gradient(#c4b5fd 2.5px, transparent 2.5px);
+  background-size: 28px 28px;
+}
+
+.dots-bg-purple {
+  background-color: #7c3aed;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.25) 2.5px, transparent 2.5px);
+  background-size: 30px 30px;
+}
+
+@keyframes toon-float {
+  0% {
+    transform: translateY(0) rotate(-1deg);
   }
-} */
+  50% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+}
+
+.toon-float {
+  animation: toon-float 4s ease-in-out infinite;
+}
+
+@keyframes toon-wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.toon-wiggle:hover {
+  animation: toon-wiggle 0.35s ease-in-out infinite;
+}
+
+@keyframes toon-pop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.toon-pop {
+  animation: toon-pop 0.45s ease-out both;
+}
+
+.toon-highlight {
+  position: relative;
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 10px;
+  transform: rotate(-2deg);
+}
+
+/* ---------- Cartoon toasts (react-toastify) ---------- */
+
+.Toastify__toast {
+  font-family: "Baloo 2", "Fredoka", Verdana, Geneva, Tahoma, sans-serif !important;
+  font-weight: 700;
+  color: #1a1a2e !important;
+  background: #ffffff !important;
+  border: 3px solid #1a1a2e !important;
+  border-radius: 16px !important;
+  box-shadow: 5px 5px 0 #1a1a2e !important;
+  min-height: 56px !important;
+}
+
+.Toastify__toast--success {
+  background: #c3f584 !important;
+}
+
+.Toastify__toast--error {
+  background: #ff8fab !important;
+}
+
+.Toastify__toast--warning {
+  background: #ffd93d !important;
+}
+
+.Toastify__toast--info {
+  background: #a5d8ff !important;
+}
+
+.Toastify__toast-icon svg {
+  fill: #1a1a2e !important;
+}
+
+.Toastify__close-button {
+  color: #1a1a2e !important;
+  opacity: 0.7 !important;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1 !important;
+}
+
 @layer base {
   section {
     @apply pt-16 pb-4 md:pt-20;
-  }
-}
-@layer utilities {
-  .home__title {
-    @apply text-4xl font-oswald font-bold uppercase lg:text-6xl;
   }
 }

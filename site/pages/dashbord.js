@@ -31,7 +31,6 @@ function dashbord() {
           setUserData(data);
           setUser(data);
           localStorage.setItem("LinkTreeUser", data);
-          toast.success(data.message);
         }
       } catch (error) {
         console.error(error.message);
@@ -48,12 +47,18 @@ function dashbord() {
 
   return (
     <>
-      <div style={{background: 'linear-gradient(to bottom, #4b0082, #000000)'}} className="h-screen">
+      <div className="min-h-screen dots-bg">
         <UserHeader />
 
-        <span></span>
-        <main>
-          <section className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+        <main className="px-4 md:px-8 pb-10">
+          <h1 className="text-2xl md:text-3xl font-extrabold text-[#1a1a2e] mt-4 mb-6">
+            Your{" "}
+            <span className="toon-highlight bg-[#FFD93D] border-2 border-[#1a1a2e]">
+              Dashboard
+            </span>{" "}
+            📊
+          </h1>
+          <section className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 !pt-0">
             <LinkBox
               lbTitle="Links"
               lbNumber={userData.links}

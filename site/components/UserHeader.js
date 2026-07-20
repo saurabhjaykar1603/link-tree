@@ -5,7 +5,6 @@ import UserContext from "@/context/UserContext";
 import axios from "axios";
 
 function UserHeader() {
-  // const { name, roll, avatar, handle, Links } = data;
   const router = useRouter();
   const handleLogOut = () => {
     localStorage.removeItem("LinkTreeToken");
@@ -33,7 +32,6 @@ function UserHeader() {
         if (!data) {
           alert("data not found");
         } else {
-          // setUserData(data);
           setUser(data);
           localStorage.setItem("LinkTreeUser", data);
         }
@@ -52,50 +50,49 @@ function UserHeader() {
   }, []);
 
   return (
-    <>
-      <header className=" flex flex-row justify-between items-center ">
-        <div className=" flex flex-col md:flex-row p-4  ">
-          <Link href="/edit/link">
-            <button className="inline-flex justify-center items-center w-[100px] md:w-auto md:text-[16px] text-[12px] px-5 py-4 text-purple-500 font-bold  hover:text-purple-800 hover:bg-purple-100 rounded-md mb-3 border-2 border-purple-500 ">
-              <img src="/svg/link.svg" alt="" className="w-4 md:w-6 mr-2 text-sky-100" />
-              Edit Link
-            </button>
-          </Link>
-          <Link href="/edit/profile">
-            <button className="inline-flex justify-center items-center w-[100px] md:w-auto md:text-[16px] text-[12px]  px-5 py-4 text-red-500 font-bold hover:text-red-700 hover:bg-red-100 rounded-md mb-3 md:ml-3 border-2  border-red-500">
-              <img src="/svg/user.svg" alt="" className="w-4 md:w-6 mr-2 text-sky-100" />
-              Edit Profile
-            </button>
-          </Link>
-        </div>
-        <div className=" flex flex-row  ">
-          <Link
-            href={`${process.env.NEXT_PUBLIC_LINK_TREE_FRONTEND_URL}/${handle}`}
-          >
-            <div className="inline-flex mr-5 text-right items-center bg-slate-200 px-3 py-2 rounded-md">
-              <div className="text-xs md:text-md flex flex-col flex-wrap">
-                <span className="font-bold">{handle}</span>
-                <span>{roll} Pack </span>
-              </div>
-              <div className="user-img">
-                <img
-                  className="w-10 ml-5 cursor-pointer rounded-full"
-                  src={avatar}
-                  alt=""
-                />
-              </div>
+    <header className="flex flex-col sm:flex-row justify-between items-center gap-4 px-4 md:px-8 py-5">
+      <div className="flex flex-row gap-3">
+        <Link href="/edit/link">
+          <button className="toon-btn inline-flex items-center gap-2 bg-[#A5D8FF] text-[#1a1a2e] px-4 py-2.5 text-sm md:text-base">
+            <img src="/svg/link.svg" alt="" className="w-4 md:w-5" />
+            Edit Link
+          </button>
+        </Link>
+        <Link href="/edit/profile">
+          <button className="toon-btn inline-flex items-center gap-2 bg-[#FF8FAB] text-[#1a1a2e] px-4 py-2.5 text-sm md:text-base">
+            <img src="/svg/user.svg" alt="" className="w-4 md:w-5" />
+            Edit Profile
+          </button>
+        </Link>
+      </div>
+      <div className="flex flex-row items-center gap-3">
+        <Link
+          href={`${process.env.NEXT_PUBLIC_LINK_TREE_FRONTEND_URL}/${handle}`}
+        >
+          <div className="toon-card inline-flex items-center bg-white px-3 py-2 gap-3 !rounded-2xl">
+            <div className="text-xs md:text-sm flex flex-col text-right">
+              <span className="font-extrabold text-[#1a1a2e]">{handle}</span>
+              <span className="font-semibold text-[#7c3aed]">{roll} Pack</span>
             </div>
-          </Link>
-          <img src="/svg/notify.svg" alt="" className="w-6 mr-4" />
+            <img
+              className="w-10 h-10 cursor-pointer rounded-full border-[3px] border-[#1a1a2e] object-cover bg-[#FFD93D]"
+              src={avatar}
+              alt=""
+            />
+          </div>
+        </Link>
+        <span className="toon-btn bg-white p-2.5">
+          <img src="/svg/notify.svg" alt="Notifications" className="w-5" />
+        </span>
+        <span className="toon-btn bg-[#FFD93D] p-2.5" onClick={handleLogOut}>
           <img
             src="/svg/logout.svg"
-            alt=""
-            className="w-6 mr-4 cursor-pointer"
-            onClick={handleLogOut}
+            alt="Logout"
+            className="w-5 cursor-pointer"
           />
-        </div>
-      </header>
-    </>
+        </span>
+      </div>
+    </header>
   );
 }
 

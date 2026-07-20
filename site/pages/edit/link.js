@@ -2,8 +2,10 @@ import UserHeader from "@/components/UserHeader";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 function link() {
+  const router = useRouter();
   const [links, setLinks] = useState([{ url: "", title: "" }]);
   const [title, setTitle] = useState("");
   const handleChange = (index, field, value) => {
@@ -34,9 +36,6 @@ function link() {
       title: titleArray[index],
     }));
 
-    // Now linksData is an array of objects containing link and title pairs
-    console.log(linksData);
-
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_LINK_TREE_BACKEND_URL}/api/v1/save/links`,
@@ -52,16 +51,15 @@ function link() {
       );
 
       if (response?.data.success) {
-        toast.success(" Links Loaded ");
-        console.log(response?.data?.handle);
+        toast.success("Links Saved");
         setLinks(response?.data?.data);
         window.location.href = `${process.env.NEXT_PUBLIC_LINK_TREE_FRONTEND_URL}/${response?.data?.handle}`;
       } else {
-        toast.error("Failed to  links");
+        toast.error("Failed to save links");
       }
     } catch (error) {
       const errorMessage =
-        error.response?.data.message || "Error loadind Links";
+        error.response?.data.message || "Error saving links";
       toast.error(errorMessage);
     }
   };
@@ -83,15 +81,13 @@ function link() {
         );
 
         if (response?.data.success) {
-          toast.success(" Links Loaded ");
-          console.log(response?.data?.data);
           setLinks(response?.data?.data || []);
         } else {
-          toast.error("Failed to  links");
+          toast.error("Failed to load links");
         }
       } catch (error) {
         const errorMessage =
-          error.response?.data.message || "Error loadind Links";
+          error.response?.data.message || "Error loading links";
         toast.error(errorMessage);
       }
     };
@@ -99,90 +95,76 @@ function link() {
   }, []);
   return (
     <>
-      <div
-        className="w-full py- mt-0 h-[900px] md:h-screen  "
-        style={{ background: "linear-gradient(to bottom, #4b0082, #000000)" }}
-      >
+      <div className="w-full min-h-screen dots-bg pb-10">
         <UserHeader />
 
-        <main>
-          <section>
-            <h1 className="text-center text-2xl text-gray-300 font-semibold">
-              Edit Your Links
+        <main className="px-4 md:px-8">
+          <section className="!pt-6 max-w-3xl mx-auto">
+            <h1 className="text-center text-2xl md:text-3xl font-extrabold text-[#1a1a2e] mb-6">
+              Edit Your{" "}
+              <span className="toon-highlight bg-[#A5D8FF] border-2 border-[#1a1a2e]">
+                Links
+              </span>{" "}
+              🪄
             </h1>
-            <div>
-              <form action="" className="px-5 my-5">
-                <div className="overflow-x-auto">
-                  <table className="min-w-full bg-transparent border border-gray-300">
-                    <thead>
-                      <tr>
-                        <th className="py-2 px-4 border-b text-gray-300 font-bold">Url</th>
-                        <th className="py-2 px-4 border-b text-gray-300 font-bold">Title</th>
-                        <th className="py-2 px-4 border-b text-gray-300 font-bold">Remove Button</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {links?.map((linkObj, index) => {
-                        const { title, url } = linkObj;
-                        return (
-                          <tr key={index}>
-                            <td className="py-2 px-4 border-b  ">
-                              <input
-                                type="text"
-                                value={url}
-                                onChange={(e) =>
-                                  handleChange(index, "url", e.target.value)
-                                }
-                                className="shadow-md border-2   focus:outline-none  py-2 px-3  rounded-md w-full md:w-full"
-                                placeholder="Enter your url"
-                              />
-                            </td>
-                            <td className="py-2 px-4 border-b ">
-                              <input
-                                type="text"
-                                value={title}
-                                onChange={(e) =>
-                                  handleChange(index, "title", e.target.value)
-                                }
-                                className="shadow-md border-2   focus:outline-none  py-2 px-3  rounded-md w-full md:w-full"
-                                placeholder="Enter your Title"
-                              />
-                            </td>
-                            <td className="py-2 px-4 border-b flex justify-center ">
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  handleRemoveLink(index);
-                                }}
-                                className="outline-none border-2  mx-auto border-red-700 py-2  font-bold bg-red-400 px-3  rounded-md w-full md:w-full"
-                              >
-                                Remove Link
-                              </button>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-                <div className="flex justify-center flex-wrap gap-5 mt-5">
-                  <button
-                    type="button"
-                    onClick={handleAddLink}
-                    className="w-full md:w-1/2 bg-purple-500 hover:bg-purple-700 duration-200 px-2 p-2 text-white font-bold rounded-md shadow-md"
+            <form className="flex flex-col gap-5">
+              {links?.map((linkObj, index) => {
+                const { title, url } = linkObj;
+                return (
+                  <div
+                    key={index}
+                    className="toon-card bg-white p-4 md:p-5 flex flex-col md:flex-row gap-3 items-stretch md:items-center"
                   >
-                    Add Link
-                  </button>
-                  <button
-                    type="button"
-                    className="w-full md:w-1/2 bg-green-500 px-2 p-2 text-black font-bold rounded-md shadow-md"
-                    onClick={saveLinks}
-                  >
-                    Save Link
-                  </button>
-                </div>
-              </form>
-            </div>
+                    <span className="toon-btn hidden md:flex items-center justify-center bg-[#FFD93D] text-[#1a1a2e] w-10 h-10 shrink-0 !rounded-full font-extrabold">
+                      {index + 1}
+                    </span>
+                    <input
+                      type="text"
+                      value={url || ""}
+                      onChange={(e) =>
+                        handleChange(index, "url", e.target.value)
+                      }
+                      className="toon-input py-2 px-3 w-full font-medium"
+                      placeholder="Enter your URL"
+                    />
+                    <input
+                      type="text"
+                      value={title || ""}
+                      onChange={(e) =>
+                        handleChange(index, "title", e.target.value)
+                      }
+                      className="toon-input py-2 px-3 w-full font-medium"
+                      placeholder="Enter your Title"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        handleRemoveLink(index);
+                      }}
+                      className="toon-btn bg-[#FF8FAB] text-[#1a1a2e] py-2 px-4 shrink-0"
+                    >
+                      🗑️ Remove
+                    </button>
+                  </div>
+                );
+              })}
+              <div className="flex justify-center flex-col sm:flex-row gap-4 mt-2">
+                <button
+                  type="button"
+                  onClick={handleAddLink}
+                  className="toon-btn w-full sm:w-1/2 bg-[#7c3aed] px-4 py-3 text-white"
+                >
+                  ➕ Add Link
+                </button>
+                <button
+                  type="button"
+                  className="toon-btn w-full sm:w-1/2 bg-[#C3F584] px-4 py-3 text-[#1a1a2e]"
+                  onClick={saveLinks}
+                >
+                  💾 Save Links
+                </button>
+              </div>
+            </form>
           </section>
         </main>
       </div>

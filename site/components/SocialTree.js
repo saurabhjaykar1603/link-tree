@@ -3,54 +3,31 @@ import React from "react";
 
 function SocialTree({ socialMedia }) {
   const { facebook, twitter, instagram, youtube, linkedin, github } =
-    socialMedia;
+    socialMedia || {};
+
+  const socials = [
+    { value: facebook, icon: "/svg/fb.svg", href: `https://facebook.com/${facebook}`, color: "bg-[#A5D8FF]" },
+    { value: twitter, icon: "/svg/tw.svg", href: `https://twitter.com/${twitter}`, color: "bg-[#FFD93D]" },
+    { value: instagram, icon: "/svg/instagram.svg", href: `https://instagram.com/${instagram}`, color: "bg-[#FF8FAB]" },
+    { value: youtube, icon: "/svg/yt.svg", href: `https://youtube.com/@${(youtube || "").replace(/^@/, "")}`, color: "bg-[#C3F584]" },
+    { value: linkedin, icon: "/svg/linkdn.svg", href: `https://linkedin.com/in/${linkedin}`, color: "bg-[#4ECDC4]" },
+    { value: github, icon: "/svg/github.svg", href: `https://github.com/${github}`, color: "bg-[#FFB870]" },
+  ].filter((s) => (s.value || "").trim());
+
+  if (socials.length === 0) return null;
+
   return (
-    <>
-      <div className="social flex justify-evenly  md:w-[400px] md:gap-x-4  mx-auto items-center">
-        <Link target="_blank" href={`https://facebook.com/${facebook}`}>
-          <img
-            src="/svg/fb.svg"
-            alt=""
-            className="w-12 my-1 bg-slate-50 shadow-md p-1 border-2 border-purple-400 rounded-full hover:bg-purple-100 hover:scale-110 hover:translate-x-1 duration-200"
-          />
+    <div className="social flex justify-center flex-wrap gap-4 md:gap-5 mx-auto items-center px-4 mt-4">
+      {socials.map((s) => (
+        <Link key={s.icon} target="_blank" href={s.href}>
+          <span
+            className={`toon-btn ${s.color} flex items-center justify-center w-14 h-14 !rounded-full toon-wiggle`}
+          >
+            <img src={s.icon} alt="" className="w-7" />
+          </span>
         </Link>
-        <Link target="_blank" href={`https://twitter.com/${twitter}`}>
-          <img
-            src="/svg/tw.svg"
-            alt=""
-            className="w-12 my-1 bg-slate-50 shadow-md p-1 border-2 border-purple-400 rounded-full hover:bg-purple-100 hover:scale-110 hover:translate-x-1 duration-200"
-          />
-        </Link>{" "}
-        <Link target="_blank" href={`https://instagram.com/${instagram}`}>
-          <img
-            src="/svg/instagram.svg"
-            alt=""
-            className="w-12 my-1 bg-slate-50 shadow-md p-1 border-2 border-purple-400 rounded-full hover:bg-purple-100 hover:scale-110 hover:translate-x-1 duration-200"
-          />
-        </Link>{" "}
-        <Link target="_blank" href={`https://youtube.com/@${youtube}`}>
-          <img
-            src="/svg/yt.svg"
-            alt=""
-            className="w-12 my-1 bg-slate-50 shadow-md p-1 border-2 border-purple-400 rounded-full hover:bg-purple-100 hover:scale-110 hover:translate-x-1 duration-200"
-          />
-        </Link>
-        <Link target="_blank" href={`https://linkedin.com/in/${linkedin}`}>
-          <img
-            src="/svg/linkdn.svg"
-            alt=""
-            className="w-12 my-1 bg-slate-50 shadow-md p-2 border-2 border-purple-400 rounded-full hover:bg-purple-100 hover:scale-110 hover:translate-x-1 duration-200"
-          />
-        </Link>
-        <Link target="_blank" href={`https://github.com/${github}`}>
-          <img
-            src="/svg/github.svg"
-            alt=""
-            className="w-12 my-1 bg-slate-50 shadow-md p-1 border-2 border-purple-400 rounded-full hover:bg-purple-100 hover:scale-110 hover:translate-x-1 duration-200"
-          />
-        </Link>
-      </div>
-    </>
+      ))}
+    </div>
   );
 }
 

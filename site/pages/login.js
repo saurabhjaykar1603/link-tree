@@ -44,26 +44,30 @@ function Login() {
     <>
       <section
         className={
-          style.background + " md:h-screen h-[900px] flex justify-center items-center"
+          style.background +
+          " min-h-screen flex flex-col justify-center items-center px-4 py-10"
         }
       >
-        <div className="main">
-          <div className="content bg-white border-2 px-4 py-8 rounded-2xl shadow-lg w-96">
-            <h1 className="text-2xl font-bold text-center">
-              You are now among Top creators
+        <div className="w-full max-w-md toon-pop">
+          <div className="toon-sticker bg-white px-6 py-8 sm:px-8">
+            <div className="text-center text-4xl mb-2">👋</div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-center text-[#1a1a2e]">
+              Welcome back, creator!
             </h1>
-            <p className="text-center mt-2">Access your Dashboard</p>
-            <p className="text-center py-2 font-bold text-gray-500">
-              Start building your hub
+            <p className="text-center font-semibold text-[#3d3d5c] mt-2">
+              Access your Dashboard
+            </p>
+            <p className="text-center py-2 font-bold text-[#7c3aed]">
+              Keep building your hub ✨
             </p>
             <form
               onSubmit={handleLogin}
-              className="flex flex-col gap-4 text-lg mt-5"
+              className="flex flex-col gap-4 text-lg mt-3"
             >
-              <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none">
+              <span className="toon-input flex flex-row items-center px-3 py-2.5">
                 <img className="w-6 mr-2" src="/svg/email.svg" alt="" />
                 <input
-                  className="focus:outline-none"
+                  className="focus:outline-none w-full font-medium bg-transparent"
                   type="email"
                   placeholder="Enter your email"
                   required
@@ -73,7 +77,7 @@ function Login() {
               </span>
 
               <input
-                className="shadow-md border-2 px-3 py-2 rounded-md focus:outline-none"
+                className="toon-input px-3 py-2.5 font-medium"
                 type="password"
                 placeholder="Enter your password"
                 required
@@ -83,20 +87,23 @@ function Login() {
 
               <input
                 type="submit"
-                value={submitted?"loading..":'Login'}
-                className="bg-indigo-600 py-2 text-white font-semibold rounded-lg"
+                value={submitted ? "Loading..." : "Login 🎉"}
+                className="toon-btn bg-[#7c3aed] py-3 text-white text-lg mt-2"
               />
             </form>
           </div>
-          <h4 className="text-center text-white font-bold mt-4">
-            New Here ?{" "}
-            <Link href="/apply" className="text-red-400">
+          <h4 className="text-center text-white font-bold mt-6 relative z-10">
+            New here?{" "}
+            <Link
+              href="/apply"
+              className="toon-highlight bg-[#FF8FAB] border-2 border-[#1a1a2e] text-[#1a1a2e] px-3 inline-block"
+            >
               Apply
             </Link>
           </h4>
         </div>
       </section>
-      <Footer className="mt-" />
+      <Footer />
     </>
   );
 }

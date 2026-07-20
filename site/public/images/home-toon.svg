@@ -1,0 +1,81 @@
+<svg viewBox="0 0 520 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- sun -->
+  <circle cx="452" cy="62" r="34" fill="#FFD93D" stroke="#1a1a2e" stroke-width="5"/>
+  <g stroke="#1a1a2e" stroke-width="5" stroke-linecap="round">
+    <line x1="452" y1="10" x2="452" y2="22"/>
+    <line x1="452" y1="102" x2="452" y2="114"/>
+    <line x1="400" y1="62" x2="412" y2="62"/>
+    <line x1="492" y1="62" x2="504" y2="62"/>
+    <line x1="415" y1="25" x2="424" y2="34"/>
+    <line x1="480" y1="90" x2="489" y2="99"/>
+    <line x1="489" y1="25" x2="480" y2="34"/>
+    <line x1="424" y1="90" x2="415" y2="99"/>
+  </g>
+  <!-- clouds -->
+  <g fill="#ffffff" stroke="#1a1a2e" stroke-width="5" stroke-linejoin="round">
+    <path d="M52 96c0-14 11-25 25-25 4-11 15-19 27-19 14 0 25 9 28 22 10 1 18 10 18 21 0 12-10 22-22 22H74c-12 0-22-9-22-21z"/>
+    <path d="M338 34c0-10 8-18 18-18 3-8 11-14 20-14 10 0 19 7 21 16 8 1 13 8 13 16 0 9-7 16-16 16h-40c-9 0-16-7-16-16z" transform="translate(-250 340) scale(0.9)"/>
+  </g>
+  <!-- ground -->
+  <ellipse cx="260" cy="400" rx="215" ry="30" fill="#C3F584" stroke="#1a1a2e" stroke-width="5"/>
+  <!-- trunk -->
+  <path d="M245 400c6-60 2-118-14-160l18-8c8 24 12 48 14 70 6-34 18-62 38-84l16 12c-26 30-38 70-40 118-1 20-1 37 0 52z" fill="#B07C4F" stroke="#1a1a2e" stroke-width="5" stroke-linejoin="round"/>
+  <!-- foliage -->
+  <g stroke="#1a1a2e" stroke-width="5">
+    <circle cx="180" cy="180" r="62" fill="#4ECDC4"/>
+    <circle cx="330" cy="150" r="70" fill="#7CD992"/>
+    <circle cx="250" cy="110" r="66" fill="#5FBF77"/>
+  </g>
+  <!-- hanging chips -->
+  <g stroke="#1a1a2e" stroke-width="4" stroke-linecap="round">
+    <line x1="180" y1="238" x2="180" y2="266"/>
+    <line x1="340" y1="216" x2="340" y2="248"/>
+    <line x1="250" y1="172" x2="250" y2="192"/>
+  </g>
+  <!-- chip: heart -->
+  <g>
+    <rect x="150" y="264" width="60" height="42" rx="12" fill="#FF8FAB" stroke="#1a1a2e" stroke-width="5"/>
+    <path d="M180 296c-9-7-15-12-15-19 0-5 4-8 8-8 3 0 6 2 7 4 1-2 4-4 7-4 4 0 8 3 8 8 0 7-6 12-15 19z" fill="#ffffff" stroke="#1a1a2e" stroke-width="3"/>
+  </g>
+  <!-- chip: play -->
+  <g>
+    <rect x="310" y="246" width="60" height="42" rx="12" fill="#A5D8FF" stroke="#1a1a2e" stroke-width="5"/>
+    <path d="M333 257l22 10-22 10z" fill="#1a1a2e"/>
+  </g>
+  <!-- chip: at-sign -->
+  <g>
+    <rect x="220" y="190" width="60" height="42" rx="12" fill="#FFD93D" stroke="#1a1a2e" stroke-width="5"/>
+    <text x="250" y="221" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#1a1a2e">@</text>
+  </g>
+  <!-- floating bubbles -->
+  <g stroke="#1a1a2e" stroke-width="4">
+    <circle cx="112" cy="120" r="14" fill="#FF8FAB"/>
+    <circle cx="410" cy="180" r="12" fill="#FFD93D"/>
+    <circle cx="80" cy="230" r="10" fill="#A5D8FF"/>
+    <circle cx="435" cy="260" r="9" fill="#C3F584"/>
+  </g>
+  <!-- sparkles -->
+  <g fill="#7c3aed">
+    <path d="M95 300l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+    <path d="M430 120l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+    <path d="M140 40l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+  </g>
+  <!-- character -->
+  <g>
+    <!-- laptop -->
+    <ellipse cx="150" cy="392" rx="34" ry="8" fill="#8ec9ff" stroke="#1a1a2e" stroke-width="4"/>
+    <!-- body -->
+    <path d="M120 340c0-18 14-32 30-32s30 14 30 32v30c0 8-6 14-14 14h-32c-8 0-14-6-14-14z" fill="#7c3aed" stroke="#1a1a2e" stroke-width="5"/>
+    <!-- head -->
+    <circle cx="150" cy="290" r="26" fill="#FFC9A3" stroke="#1a1a2e" stroke-width="5"/>
+    <!-- hair -->
+    <path d="M124 288c0-16 12-28 26-28s26 12 26 28c0-6-6-14-10-16-2 4-8 6-16 6s-14-2-16-6c-4 2-10 10-10 16z" fill="#1a1a2e"/>
+    <!-- smile -->
+    <path d="M142 296c3 4 13 4 16 0" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="141" cy="288" r="2.6" fill="#1a1a2e"/>
+    <circle cx="159" cy="288" r="2.6" fill="#1a1a2e"/>
+    <!-- laptop screen -->
+    <rect x="122" y="360" width="56" height="34" rx="6" fill="#ffffff" stroke="#1a1a2e" stroke-width="4"/>
+    <path d="M132 372h36M132 380h24" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

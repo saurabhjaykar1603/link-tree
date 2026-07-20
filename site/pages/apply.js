@@ -60,26 +60,29 @@ function Apply() {
       <section
         className={
           style.background +
-          " md:h-screen h-[900px] flex justify-center items-center"
+          " min-h-screen flex flex-col justify-center items-center px-4 py-10"
         }
       >
-        <div className="main">
-          <div className="content bg-white border-2 px-4 py-8 rounded-2xl shadow-lg">
-            <h1 className="text-2xl font-bold text-center">
+        <div className="w-full max-w-md toon-pop">
+          <div className="toon-sticker bg-white px-6 py-8 sm:px-8">
+            <div className="text-center text-4xl mb-2">🌟</div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-center text-[#1a1a2e]">
               Join the Top 1% creators
             </h1>
-            <p className="text-center">Create Linktree for your brand</p>
-            <p className="text-center py-5 font-bold text-gray-500">
-              Start building your hub
+            <p className="text-center font-semibold text-[#3d3d5c] mt-1">
+              Create a LinkTree for your brand
+            </p>
+            <p className="text-center pt-1 pb-5 font-bold text-[#7c3aed]">
+              Start building your hub ✨
             </p>
             <form
               onSubmit={handleRegister}
-              className="flex flex-col gap-3 text-lg mt-1"
+              className="flex flex-col gap-4 text-lg"
             >
-              <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none">
+              <span className="toon-input flex flex-row items-center px-3 py-2.5">
                 <img className="w-6 mr-2" src="/svg/ig.svg" alt="" />
                 <input
-                  className=" focus:outline-none"
+                  className="focus:outline-none w-full font-medium bg-transparent"
                   type="text"
                   placeholder="Social Handle"
                   value={handle}
@@ -87,7 +90,7 @@ function Apply() {
                 />
               </span>
               <input
-                className="shadow-md border-2 px-3 py-2 rounded-md focus:outline-none"
+                className="toon-input px-3 py-2.5 font-medium"
                 type="email"
                 placeholder="Enter your email"
                 required
@@ -95,56 +98,50 @@ function Apply() {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                className="shadow-md border-2 px-3 py-2 rounded-md focus:outline-none"
+                className="toon-input px-3 py-2.5 font-medium"
                 type="password"
                 placeholder="Set a password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <h5 className="text-sm text-center">Account Type</h5>
-              <span className="flex justify-center">
-                <label className="flex flex-row mr-3 ">
-                  <input
-                    type="checkbox"
-                    value={"Creator"}
-                    checked={category === "Creator"}
-                    onChange={handleCategoryChange}
-                  />
-                  <p className="pl-2">Creator</p>
-                </label>
-
-                <label className="flex flex-row mr-3 ">
-                  <input
-                    type="checkbox"
-                    value={"Agency"}
-                    checked={category === "Agency"}
-                    onChange={handleCategoryChange}
-                  />
-                  <p className="pl-2">Agency</p>
-                </label>
-
-                <label className="flex flex-row mr-3 ">
-                  <input
-                    type="checkbox"
-                    value={"Brand"}
-                    checked={category === "Brand"}
-                    onChange={handleCategoryChange}
-                  />
-                  <p className="pl-2">Creator</p>
-                </label>
-              </span>
-              <button className=""></button>
+              <h5 className="text-sm font-bold text-center text-[#1a1a2e] mt-1">
+                Account Type
+              </h5>
+              <div className="flex flex-wrap justify-center gap-2">
+                {["Creator", "Agency", "Brand"].map((type) => (
+                  <label
+                    key={type}
+                    className={`toon-btn px-4 py-1.5 text-sm select-none ${
+                      category === type
+                        ? "bg-[#FFD93D] text-[#1a1a2e]"
+                        : "bg-white text-[#3d3d5c]"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      className="hidden"
+                      value={type}
+                      checked={category === type}
+                      onChange={handleCategoryChange}
+                    />
+                    {type}
+                  </label>
+                ))}
+              </div>
               <input
                 type="submit"
-                value={submitted ? "loading.." : "apply"}
-                className="bg-indigo-600 py-2 text-white font-semibold rounded-lg"
+                value={submitted ? "Loading..." : "Apply 🚀"}
+                className="toon-btn bg-[#7c3aed] py-3 text-white text-lg mt-2"
               />
             </form>
           </div>
-          <h4 className="text-center text-white font-bold mt-4">
-            Already have an account ?{" "}
-            <Link href="/login" className="text-red-400">
+          <h4 className="text-center text-white font-bold mt-6 relative z-10">
+            Already have an account?{" "}
+            <Link
+              href="/login"
+              className="toon-highlight bg-[#FFD93D] border-2 border-[#1a1a2e] text-[#1a1a2e] px-3 inline-block"
+            >
               Login
             </Link>
           </h4>

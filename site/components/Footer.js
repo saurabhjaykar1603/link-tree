@@ -1,15 +1,28 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
 function Footer() {
   return (
-    <footer aria-label='Site Footer' className='fixed bottom-1 mt-20 left-1/2 -translate-x-1/2'>
-      <Link target='_blank' href="https://github.com/saurabhjaykar1603" className='flex flex-row items-center  '>
-        <img src="/images/favicon.ico" alt=""  className='hover:-rotate-45 transition-all duration-300'/>
-        <h5 className='pl-3 text-indigo-400 font-bold hover:text-indigo-200 '>Develope by Saurabh</h5>
+    <footer
+      aria-label="Site Footer"
+      className="flex justify-center py-6 relative z-10"
+    >
+      <Link
+        target="_blank"
+        href="https://github.com/saurabhjaykar1603"
+        className="toon-btn bg-white flex flex-row items-center gap-2 px-4 py-2"
+      >
+        <img
+          src="/images/favicon.ico"
+          alt=""
+          className="h-6 w-6 hover:-rotate-45 transition-all duration-300"
+        />
+        <h5 className="text-[#7c3aed] font-extrabold">
+          Developed by Saurabh 🎨
+        </h5>
       </Link>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

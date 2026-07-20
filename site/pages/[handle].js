@@ -69,28 +69,34 @@ function Handle() {
   // },[router.query])
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="min-h-screen dots-bg flex justify-center items-center">
+        <div className="toon-sticker bg-white px-8 py-6 text-xl font-extrabold text-[#1a1a2e]">
+          Loading... 🌀
+        </div>
+      </div>
+    );
   }
 
   if (!userFound) {
     return (
-      <div
-        className="min-h-screen flex justify-center items-center "
-       
-      >
-        <div className=" flex  flex-col gap-y-3">
-          <h1 className="font-bold text-xl"> User not found ☹️</h1>
-          <p>If you're looking for a page , double check the spelling. </p>
-          <p>
+      <div className="min-h-screen dots-bg flex justify-center items-center px-4">
+        <div className="toon-sticker bg-white px-8 py-10 flex flex-col gap-y-3 text-center max-w-md toon-pop">
+          <div className="text-5xl">🙈</div>
+          <h1 className="font-extrabold text-2xl text-[#1a1a2e]">
+            User not found
+          </h1>
+          <p className="font-semibold text-[#3d3d5c]">
+            If you're looking for a page, double check the spelling.
+          </p>
+          <p className="font-semibold text-[#3d3d5c] mt-2">
             Create your own{" "}
-            <span>
-              <Link
-                href="/apply"
-                className="ml-2 bg-blue-300 px-3 py-1 rounded-sm hover:bg-blue-400 duration-300 transition-all"
-              >
-                LinkTree
-              </Link>
-            </span>
+            <Link
+              href="/apply"
+              className="toon-btn inline-block bg-[#FFD93D] text-[#1a1a2e] px-4 py-1 ml-1"
+            >
+              LinkTree
+            </Link>
           </p>
         </div>
       </div>
@@ -98,7 +104,7 @@ function Handle() {
   }
 
   return (
-    <div  className="md:h-screen h-[900px]" style={{ background: "linear-gradient(to bottom, #4b0082, #000000)" }}>
+    <div className="min-h-screen dots-bg pb-10">
       <LinkTree data={data} />
       <SocialTree socialMedia={socialMedia} />
       <ShareButton />

@@ -1,172 +1,138 @@
-import Link from "next/link";
 import MyHead from "../components/MyHead";
 import { useRouter } from "next/router";
 import Footer from "@/components/Footer";
 
+const features = [
+  {
+    img: "/images/add-group.png",
+    title: "Easy To Register",
+    text: "There are simple steps to create an account",
+    color: "bg-[#FFD93D]",
+    tilt: "-rotate-1",
+  },
+  {
+    img: "/images/ux.png",
+    title: "Intuitive User Interface",
+    text: "A simple and clear UI designed for you.",
+    color: "bg-[#FF8FAB]",
+    tilt: "rotate-1",
+  },
+  {
+    img: "/images/link.png",
+    title: "Easily Share Your Profile",
+    text: "Share your profile effortlessly with anyone.",
+    color: "bg-[#4ECDC4]",
+    tilt: "-rotate-1",
+  },
+  {
+    img: "/images/updated.png",
+    title: "Simple Profile Updates",
+    text: "Effortlessly manage your profile and links.",
+    color: "bg-[#A5D8FF]",
+    tilt: "rotate-1",
+  },
+  {
+    img: "/images/share.png",
+    title: "One Link For Everything",
+    text: "All your socials living under a single roof.",
+    color: "bg-[#C3F584]",
+    tilt: "-rotate-1",
+  },
+  {
+    img: "/images/analyitics.png",
+    title: "Google Analytics",
+    text: "Web analytics service by Google.",
+    color: "bg-[#FFB870]",
+    tilt: "rotate-1",
+  },
+];
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <>
       <MyHead title="Home" />
 
-      <div className="w-full min-h-screen py- mt-0" style={{background: 'linear-gradient(to bottom, #4b0082, #000000)'}}>
-        <div className="container mx-auto grid md:grid-cols-2 gap-5 px-4 md:px-0">
-          <div className="flex flex-col justify-center md:justify-startmd:gap-4 p-5">
-            <h1 className="text-4xl md:text-5xl font-bold text-yellow-500 text-center md:text-start">
-              Welcome To <span className="text-white">LinkTree</span>
+      <div className="w-full min-h-screen dots-bg pb-24">
+        {/* Hero */}
+        <div className="container mx-auto grid md:grid-cols-2 gap-8 px-5 md:px-8 pt-10 md:pt-16 items-center">
+          <div className="flex flex-col justify-center gap-5 toon-pop">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1a1a2e] text-center md:text-left leading-tight">
+              Welcome To{" "}
+              <span className="toon-highlight bg-[#FFD93D] border-[3px] border-[#1a1a2e] shadow-[4px_4px_0_#1a1a2e]">
+                LinkTree
+              </span>
             </h1>
-            <div className="text-lg text-center md:text-start md:text-[22px] md:font-semibold mt-5 text-gray-300 md:leading-10">
+            <p className="text-lg md:text-xl font-semibold text-[#3d3d5c] text-center md:text-left leading-relaxed">
               Assist your followers in discovering all your activities by using
-              just one <span className="text-blue-400"> simple link.</span>
-              <p className="text-lg text-center md:text-start md:text-[22px] md:font-semibold mt-5 text-gray-300 md:leading-10">
-                Turn your Link In Bio into your own{" "}
-                <span className="text-blue-400"> mini-website</span>
-              </p>
-            </div>
+              just one{" "}
+              <span className="toon-highlight bg-[#A5D8FF] border-2 border-[#1a1a2e] text-[#1a1a2e] rotate-1">
+                simple link
+              </span>
+            </p>
+            <p className="text-lg md:text-xl font-semibold text-[#3d3d5c] text-center md:text-left leading-relaxed">
+              Turn your Link In Bio into your own{" "}
+              <span className="toon-highlight bg-[#FF8FAB] border-2 border-[#1a1a2e] text-[#1a1a2e]">
+                mini-website
+              </span>
+            </p>
 
-            <div className="mt-4">
+            <div className="mt-2 flex justify-center md:justify-start">
               <button
                 onClick={() => {
                   router.push("/apply");
                 }}
-                className=" bg-purple-400 px-4 py-4 text-dark hover:bg-purple-500 duration-300 rounded-md font-bold shadow-lg"
+                className="toon-btn bg-[#7c3aed] text-white px-6 py-3.5 text-base md:text-lg"
               >
-                {" "}
-                Get Started to Create Your First LinkTree
+                🚀 Get Started — It&apos;s Free!
               </button>
             </div>
           </div>
-          <div className="flex justify-center md:justify-center">
-            <img
-              style={{
-                filter: "drop-shadow( 1px 5px 1px #003399)",
-              }}
-              src="/images/home.svg"
-              alt="Home Illustration"
-              className="w-96 md:w-[450px]"
-            />
+          <div className="flex justify-center">
+            <div className="toon-sticker bg-white p-5 md:p-8 toon-float max-w-[90%]">
+              <img
+                src="/images/home-toon.svg"
+                alt="Home Illustration"
+                className="w-72 sm:w-80 md:w-[420px]"
+              />
+            </div>
           </div>
         </div>
 
-        <section className=" px-5 md:px-24">
-          <div className=" grid  gap-5  sm:grid-cols-12">
-            <div className="min-h-[100px] rounded-md bg-transparent shadow-xl sm:col-span-4 border-2 hover:border-purple-800 duration-300">
-              <div className="grid gap-3 grid-cols-12 p-3">
-                <div className="col-span-4 h-full">
-                  <img
-                    src="/images/add-group.png"
-                    alt=""
-                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
-                  />
-                </div>
-                <div className="col-span-8">
-                  <h1 className="text-gray-200 md:text-xl font-semibold">
-                    Easy To Register
-                  </h1>
-                  <p className="text-[15px] mt-1 md:text-[17px] text-gray-200 ">
-                    There are simple steps to create an account
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="min-h-[100px] rounded-md bg-transparent shadow-xl sm:col-span-4 border-2 hover:border-purple-800 duration-300">
-              <div className="grid gap-3 grid-cols-12 p-3">
-                <div className="col-span-4 h-full">
-                  <img
-                    src="/images/ux.png"
-                    alt=""
-                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
-                  />
-                </div>
-                <div className="col-span-8">
-                  <h1 className="text-gray-200 md:text-xl font-semibold">
-                    Intuitive User Interface
-                  </h1>
-                  <p className="text-[15px] mt-1 md:text-[17px] text-gray-200">
-                    A simple and clear UI designed for you.
-                  </p>
+        {/* Features */}
+        <section className="px-5 md:px-16 lg:px-24">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a1a2e] text-center mb-10">
+            Why you&apos;ll{" "}
+            <span className="toon-highlight bg-[#4ECDC4] border-[3px] border-[#1a1a2e] shadow-[3px_3px_0_#1a1a2e]">
+              love it
+            </span>{" "}
+            💜
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((f) => (
+              <div
+                key={f.title}
+                className={`toon-card ${f.color} ${f.tilt} p-5 hover:rotate-0`}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-white border-[3px] border-[#1a1a2e] rounded-2xl p-2 shadow-[3px_3px_0_#1a1a2e] shrink-0 toon-wiggle">
+                    <img src={f.img} alt="" className="h-12 w-12 object-contain" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-extrabold text-[#1a1a2e]">
+                      {f.title}
+                    </h3>
+                    <p className="text-[15px] md:text-base font-medium text-[#3d3d5c] mt-1">
+                      {f.text}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="min-h-[100px] rounded-md bg-transparent shadow-xl sm:col-span-4 border-2 hover:border-purple-800 duration-300">
-              <div className="grid gap-3 grid-cols-12 p-3">
-                <div className="col-span-4 h-full">
-                  <img
-                    src="/images/link.png"
-                    alt=""
-                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
-                  />
-                </div>
-                <div className="col-span-8">
-                  <h1 className="text-gray-200 md:text-xl font-semibold">
-                    Easily Share Your Profile
-                  </h1>
-                  <p className="text-[15px] mt-1 md:text-[17px] text-gray-200">
-                    Share your profile effortlessly with anyone.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="min-h-[100px] rounded-md bg-transparent shadow-xl sm:col-span-4 border-2 hover:border-purple-800 duration-300">
-              <div className="grid gap-3 grid-cols-12 p-3">
-                <div className="col-span-4 h-full">
-                  <img
-                    src="/images/updated.png"
-                    alt=""
-                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
-                  />
-                </div>
-                <div className="col-span-8">
-                  <h1 className="text-gray-200 md:text-xl font-semibold">
-                    Simple Profile Updates
-                  </h1>
-                  <p className="text-[15px] mt-1 md:text-[17px] text-gray-200">
-                    Effortlessly manage your profile and links.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="min-h-[100px] rounded-md bg-transparent shadow-xl sm:col-span-4 border-2 hover:border-purple-800 duration-300">
-              <div className="grid gap-3 grid-cols-12 p-3">
-                <div className="col-span-4 h-full">
-                  <img
-                    src="/images/share.png"
-                    alt=""
-                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
-                  />
-                </div>
-                <div className="col-span-8">
-                  <h1 className="text-gray-200 md:text-xl font-semibold">
-                    Easy To Register
-                  </h1>
-                  <p className="text-[15px] mt-1 md:text-[17px] text-gray-200">
-                    There are simple steps to create an account
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="min-h-[100px] rounded-md bg-transparent shadow-xl sm:col-span-4 border-2 hover:border-purple-800 duration-300">
-              <div className="grid gap-3 grid-cols-12 p-3">
-                <div className="col-span-4 h-full">
-                  <img
-                    src="/images/analyitics.png"
-                    alt=""
-                    className="h-[70px] mx-auto shadow-ld border-2 p-2 rounded-lg image-clickable transform transition-transform duration-300 hover:scale-110 hover:animate-move-up-down"
-                  />
-                </div>
-                <div className="col-span-8">
-                  <h1 className="text-gray-200 md:text-xl font-semibold">
-                    Google Analitics
-                  </h1>
-                  <p className="text-[15px] mt-1 md:text-[17px] text-gray-200">
-                    Web analytics service by Google.
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
+
+        <Footer />
       </div>
     </>
   );

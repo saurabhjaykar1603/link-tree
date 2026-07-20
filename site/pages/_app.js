@@ -62,7 +62,16 @@ export default function App({ Component, pageProps }) {
       <UserContext.Provider value={{ user, setUser }}>
         <Component {...pageProps} />
       </UserContext.Provider>
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        limit={2}
+        theme="light"
+      />
       {isLoading && (
         <div className="nprogress-custom-parent">
           <div className="nprogress-custom-bar" />

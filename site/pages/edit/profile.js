@@ -86,9 +86,12 @@ function profile() {
 
   useEffect(() => {
     if (user) {
-      setName(user.name);
-      setBio(user.bio);
-      setAvatar(user.avatar);
+      setName(user.name || "");
+      setBio(user.bio || "");
+      setAvatar(
+        user.avatar ||
+          "https://cdn-icons-png.flaticon.com/128/1154/1154473.png"
+      );
     }
   }, [user]);
 
@@ -110,11 +113,9 @@ function profile() {
         );
 
         if (response?.data.success) {
-          toast.success(" Links Loaded ");
-          console.log(response?.data?.data);
-          setSocialMedia(response?.data.data);
+          setSocialMedia((prev) => ({ ...prev, ...(response?.data.data || {}) }));
         } else {
-          toast.error("Failed to  profile");
+          toast.error("Failed to load social links");
         }
       } catch (error) {
         const errorMessage =
@@ -126,20 +127,21 @@ function profile() {
   }, []);
   return (
     <>
-      <div
-        className="min-h-screen"
-        style={{ background: "linear-gradient(to bottom, #4b0082, #000000)" }}
-      >
+      <div className="min-h-screen dots-bg pb-10">
         <UserHeader />
         <main>
-          <section className="flex justify-evenly mt-14 flex-wrap gap-y-10">
-            <div className=" w-[600px] mx-auto">
-              <h1 className="text-center  mb-5 text-3xl  text-gray-300 font-bold">
-                Edit Profile
+          <section className="flex justify-evenly !pt-6 flex-wrap gap-y-10 px-4">
+            <div className="w-full max-w-[520px] mx-auto toon-sticker bg-white p-6 md:p-8 h-fit">
+              <h1 className="text-center mb-6 text-2xl md:text-3xl font-extrabold text-[#1a1a2e]">
+                Edit{" "}
+                <span className="toon-highlight bg-[#FF8FAB] border-2 border-[#1a1a2e]">
+                  Profile
+                </span>{" "}
+                ✏️
               </h1>
               <div>
                 <form className="flex justify-center flex-col items-center">
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
+                  <span className="toon-input flex flex-row items-center px-3 py-2.5 w-full mb-5">
                     <img className="w-6 mr-2" src="/svg/avatar.svg" alt="" />
                     <input
                         className=" focus:outline-none w-full  rounded-sm pl-2"
@@ -149,7 +151,7 @@ function profile() {
                       onChange={(e) => setName(e.target.value)}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
+                  <span className="toon-input flex flex-row items-center px-3 py-2.5 w-full mb-5">
                     <img className="w-6 mr-2" src="/svg/bio.svg" alt="" />
                     <input
                         className=" focus:outline-none w-full  rounded-sm pl-2"
@@ -159,7 +161,7 @@ function profile() {
                       onChange={(e) => setBio(e.target.value)}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
+                  <span className="toon-input flex flex-row items-center px-3 py-2.5 w-full mb-5">
                     <img className="w-6 mr-2" src="/svg/avatar.svg" alt="" />
                     <input
                       className=" focus:outline-none w-full  rounded-sm pl-2"
@@ -176,7 +178,7 @@ function profile() {
                   </span>
                   <button
                     type="button"
-                    className="w-32 bg-green-400 px-3 py-2 rounded-md border-2 border-green-600 font-bold shadow-xl hover:bg-green-500 duration-300 "
+                    className="toon-btn bg-[#C3F584] text-[#1a1a2e] px-6 py-2.5"
                     onClick={saveProfile}
                   >
                     Save Profile
@@ -185,13 +187,17 @@ function profile() {
               </div>
             </div>
 
-            <div className=" w-[600px] mx-auto">
-              <h1 className="text-center  mb-5 text-3xl  text-gray-300 font-bold">
-                Edit Social Links
+            <div className="w-full max-w-[520px] mx-auto toon-sticker bg-white p-6 md:p-8 h-fit">
+              <h1 className="text-center mb-6 text-2xl md:text-3xl font-extrabold text-[#1a1a2e]">
+                Edit{" "}
+                <span className="toon-highlight bg-[#4ECDC4] border-2 border-[#1a1a2e]">
+                  Social Links
+                </span>{" "}
+                🔗
               </h1>
               <div>
                 <form className="flex justify-center flex-col items-center">
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
+                  <span className="toon-input flex flex-row items-center px-3 py-2.5 w-full mb-5">
                     <img className="w-6 mr-2" src="/svg/fb.svg" alt="" />
                     <input
                         className=" focus:outline-none w-full  rounded-sm pl-2"
@@ -202,7 +208,7 @@ function profile() {
                       onChange={handleSocial}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
+                  <span className="toon-input flex flex-row items-center px-3 py-2.5 w-full mb-5">
                     <img className="w-6 mr-2" src="/svg/ig.svg" alt="" />
                     <input
                         className=" focus:outline-none w-full  rounded-sm pl-2"
@@ -213,7 +219,7 @@ function profile() {
                       onChange={handleSocial}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
+                  <span className="toon-input flex flex-row items-center px-3 py-2.5 w-full mb-5">
                     <img className="w-6 mr-2" src="/svg/tw.svg" alt="" />
                     <input
                          className=" focus:outline-none w-full  rounded-sm pl-2"
@@ -224,7 +230,7 @@ function profile() {
                       onChange={handleSocial}
                     />
                   </span>
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
+                  <span className="toon-input flex flex-row items-center px-3 py-2.5 w-full mb-5">
                     <img className="w-6 mr-2" src="/svg/linkdn.svg" alt="" />
                     <input
                       className=" focus:outline-none w-full  rounded-sm pl-2"
@@ -235,7 +241,7 @@ function profile() {
                       onChange={handleSocial}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
+                  <span className="toon-input flex flex-row items-center px-3 py-2.5 w-full mb-5">
                     <img className="w-6 mr-2" src="/svg/github.svg" alt="" />
                     <input
                         className=" focus:outline-none w-full  rounded-sm pl-2"
@@ -246,7 +252,7 @@ function profile() {
                       onChange={handleSocial}
                     />
                   </span>{" "}
-                  <span className="flex flex-row shadow-md border-2 px-3 py-2 rounded-md focus:outline-none w-11/12 mx-auto mb-5 bg-purple-300">
+                  <span className="toon-input flex flex-row items-center px-3 py-2.5 w-full mb-5">
                     <img className="w-6 mr-2" src="/svg/yt.svg" alt="" />
                     <input
                        className=" focus:outline-none w-full  rounded-sm pl-2"
@@ -259,7 +265,7 @@ function profile() {
                   </span>
                   <button
                     type="button"
-                    className="w-32 bg-green-400 px-3 py-2 rounded-md border-2 border-green-600 font-bold shadow-xl hover:bg-green-500 duration-300 "
+                    className="toon-btn bg-[#C3F584] text-[#1a1a2e] px-6 py-2.5"
                     onClick={saveSocial}
                   >
                     Save Links
